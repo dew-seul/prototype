@@ -6380,14 +6380,23 @@ b("signup_form_enter");a.indexOf("/register/roles")!==-1&&b("signup_roles_enter"
 
       <div class="gbz-m-chip-wrap">
         <div class="gbz-m-chip-group" id="gbzMchipGroup" role="group" aria-label="카테고리 필터">
-          <button class="gbz-m-chip" aria-pressed="true"  data-cat="all">전체</button>
-          <button class="gbz-m-chip" aria-pressed="false" data-cat="nail">네일</button>
-          <button class="gbz-m-chip" aria-pressed="false" data-cat="hair">헤어</button>
-          <button class="gbz-m-chip" aria-pressed="false" data-cat="skin">피부</button>
-          <button class="gbz-m-chip" aria-pressed="false" data-cat="fit">피트니스</button>
-          <button class="gbz-m-chip" aria-pressed="false" data-cat="pilates">필라테스</button>
-          <button class="gbz-m-chip" aria-pressed="false" data-cat="ticket">티켓</button>
-          <button class="gbz-m-chip" aria-pressed="false" data-cat="etc">기타</button>
+        <button class="gbz-m-chip" aria-pressed="true"  data-cat="all">전체</button>
+        <button class="gbz-m-chip" aria-pressed="false" data-cat="hair">헤어</button>
+        <button class="gbz-m-chip" aria-pressed="false" data-cat="barber">바버</button>
+        <button class="gbz-m-chip" aria-pressed="false" data-cat="nail">네일</button>
+        <button class="gbz-m-chip" aria-pressed="false" data-cat="semi">반영구</button>
+        <button class="gbz-m-chip" aria-pressed="false" data-cat="lashes">속눈썹</button>
+        <button class="gbz-m-chip" aria-pressed="false" data-cat="wax">왁싱</button>
+        <button class="gbz-m-chip" aria-pressed="false" data-cat="tanning">태닝</button>
+        <button class="gbz-m-chip" aria-pressed="false" data-cat="skin">피부관리</button>
+        <button class="gbz-m-chip" aria-pressed="false" data-cat="massage">마사지</button>
+        <button class="gbz-m-chip" aria-pressed="false" data-cat="makeup">메이크업</button>
+        <button class="gbz-m-chip" aria-pressed="false" data-cat="scalp">두피/탈모</button>
+        <button class="gbz-m-chip" aria-pressed="false" data-cat="tattoo">타투</button>
+        <button class="gbz-m-chip" aria-pressed="false" data-cat="pet">애견</button>
+        <button class="gbz-m-chip" aria-pressed="false" data-cat="pilates">필라테스</button>
+        <button class="gbz-m-chip" aria-pressed="false" data-cat="fit">피트니스</button>
+        <button class="gbz-m-chip" aria-pressed="false" data-cat="etc">기타</button>
         </div>
         <div class="gbz-m-chip-fade gbz-m-chip-fade--left is-hide" id="gbzMchipFadeL">
           <button class="gbz-m-chip-next" id="gbzMchipPrev" type="button" aria-label="이전 카테고리">
@@ -6407,196 +6416,1079 @@ b("signup_form_enter");a.indexOf("/register/roles")!==-1&&b("signup_roles_enter"
 
       <div class="gbz-m-tpl-list" id="gbzMlist">
 
-        <div class="gbz-m-tpl" data-cat="nail" data-msg='[헤렌네일]
-[고객이름]님, [예약일시] 예약이 정상 접수되었어요 :)
-
-네일샵 위치와 주차 안내는 카카오톡 채널에서 확인 가능해요.
-방문 시 주차는 1층 공영주차장 이용 부탁드립니다.
-
-곧 뵐게요!'>
-          <div class="gbz-m-tpl-head">
-            <div class="gbz-m-tpl-meta">
-              <div class="gbz-m-tpl-badges">
-                <span class="gbz-m-badge gbz-m-badge--info">네일</span>
-                <span class="gbz-m-badge gbz-m-badge--neutral">예약 등록 시</span>
-              </div>
-              <h3 class="gbz-m-tpl-title">네일샵 예약 확정 + 안내</h3>
+      <div class="gbz-m-tpl" data-cat="hair" data-msg='[고객이름]님, [예약일시] [시술이름] 예약 확정되었어요.
+방문 10분 전 도착 부탁드려요. 변경이 필요하시면 편하게 답장 주세요.'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">헤어</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">예약 등록 시</span>
             </div>
-            <button class="gbz-m-tpl-copy" type="button">복사</button>
+            <h3 class="gbz-m-tpl-title">헤어 예약 확정 안내</h3>
           </div>
-          <div class="gbz-m-tpl-msg"></div>
-          <div class="gbz-m-tpl-byte"></div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
         </div>
-
-        <div class="gbz-m-tpl" data-cat="nail" data-msg='[헤렌네일]
-[고객이름]님, 아트 받으신 지 2주가 지났어요!
-들뜸이나 불편한 점 있으시면 편하게 방문해 주세요.
-A/S는 시술 2주 이내 무료로 도와드려요 :)'>
-          <div class="gbz-m-tpl-head">
-            <div class="gbz-m-tpl-meta">
-              <div class="gbz-m-tpl-badges">
-                <span class="gbz-m-badge gbz-m-badge--info">네일</span>
-                <span class="gbz-m-badge gbz-m-badge--neutral">1차 · 14일 뒤</span>
-              </div>
-              <h3 class="gbz-m-tpl-title">네일 2주차 A/S 안내</h3>
-            </div>
-            <button class="gbz-m-tpl-copy" type="button">복사</button>
-          </div>
-          <div class="gbz-m-tpl-msg"></div>
-          <div class="gbz-m-tpl-byte"></div>
-        </div>
-
-        <div class="gbz-m-tpl" data-cat="nail" data-msg='[헤렌네일]
-[고객이름]님, 어느새 한 달이 지났어요!
-
-다음 아트 예약하고 싶으시면 답장 또는 카카오톡으로 편하게 남겨주세요.
-이번 달 신규 아트도 구경하러 오세요 :)'>
-          <div class="gbz-m-tpl-head">
-            <div class="gbz-m-tpl-meta">
-              <div class="gbz-m-tpl-badges">
-                <span class="gbz-m-badge gbz-m-badge--info">네일</span>
-                <span class="gbz-m-badge gbz-m-badge--neutral">2차 · 31일 뒤</span>
-              </div>
-              <h3 class="gbz-m-tpl-title">네일 재방문 유도 (한 달 뒤)</h3>
-            </div>
-            <button class="gbz-m-tpl-copy" type="button">복사</button>
-          </div>
-          <div class="gbz-m-tpl-msg"></div>
-          <div class="gbz-m-tpl-byte"></div>
-        </div>
-
-        <div class="gbz-m-tpl" data-cat="hair" data-msg='[고객이름]님, 펌 시술받으신 지 2주가 지났어요.
-웨이브는 잘 유지되고 계신가요?
-
-홈케어 트리트먼트 사용하시면 부드러움이 오래가요.
-다음 방문 시기는 8~10주 뒤가 적당합니다 :)'>
-          <div class="gbz-m-tpl-head">
-            <div class="gbz-m-tpl-meta">
-              <div class="gbz-m-tpl-badges">
-                <span class="gbz-m-badge gbz-m-badge--info">헤어</span>
-                <span class="gbz-m-badge gbz-m-badge--neutral">1차 · 14일 뒤</span>
-              </div>
-              <h3 class="gbz-m-tpl-title">펌 시술 후 관리 안내</h3>
-            </div>
-            <button class="gbz-m-tpl-copy" type="button">복사</button>
-          </div>
-          <div class="gbz-m-tpl-msg"></div>
-          <div class="gbz-m-tpl-byte"></div>
-        </div>
-
-        <div class="gbz-m-tpl" data-cat="hair" data-msg='[고객이름]님, [예약일시] [시술이름] 예약이 확정되었어요.
-
-- 컬러 상담은 시술 당일 함께 진행돼요.
-- 방문 10분 전 도착 부탁드려요.
-
-혹시 일정 변경 필요하시면 답장 주세요 :)'>
-          <div class="gbz-m-tpl-head">
-            <div class="gbz-m-tpl-meta">
-              <div class="gbz-m-tpl-badges">
-                <span class="gbz-m-badge gbz-m-badge--info">헤어</span>
-                <span class="gbz-m-badge gbz-m-badge--neutral">예약 등록 시</span>
-              </div>
-              <h3 class="gbz-m-tpl-title">헤어 예약 확정 안내</h3>
-            </div>
-            <button class="gbz-m-tpl-copy" type="button">복사</button>
-          </div>
-          <div class="gbz-m-tpl-msg"></div>
-          <div class="gbz-m-tpl-byte"></div>
-        </div>
-
-        <div class="gbz-m-tpl" data-cat="skin" data-msg='[고객이름]님, [시술이름] 받으신 지 3일이 지났어요.
-
-- 자외선 차단제를 꼼꼼히 발라주세요.
-- 스크럽·필링은 일주일 뒤부터 가능해요.
-
-불편하신 점 있으시면 편하게 연락 주세요.'>
-          <div class="gbz-m-tpl-head">
-            <div class="gbz-m-tpl-meta">
-              <div class="gbz-m-tpl-badges">
-                <span class="gbz-m-badge gbz-m-badge--info">피부</span>
-                <span class="gbz-m-badge gbz-m-badge--neutral">1차 · 3일 뒤</span>
-              </div>
-              <h3 class="gbz-m-tpl-title">피부 관리 후 홈케어 안내</h3>
-            </div>
-            <button class="gbz-m-tpl-copy" type="button">복사</button>
-          </div>
-          <div class="gbz-m-tpl-msg"></div>
-          <div class="gbz-m-tpl-byte"></div>
-        </div>
-
-        <div class="gbz-m-tpl" data-cat="fit" data-msg='[고객이름]님, 첫 PT 수업 잘 마치셨어요 :)
-
-근육통은 1~2일 내 가라앉고, 그 사이엔 스트레칭을 꾸준히 해주세요.
-다음 수업은 내일 오후에 뵐게요!'>
-          <div class="gbz-m-tpl-head">
-            <div class="gbz-m-tpl-meta">
-              <div class="gbz-m-tpl-badges">
-                <span class="gbz-m-badge gbz-m-badge--info">피트니스</span>
-                <span class="gbz-m-badge gbz-m-badge--neutral">1차 · 1일 뒤</span>
-              </div>
-              <h3 class="gbz-m-tpl-title">첫 PT 수업 후 피드백</h3>
-            </div>
-            <button class="gbz-m-tpl-copy" type="button">복사</button>
-          </div>
-          <div class="gbz-m-tpl-msg"></div>
-          <div class="gbz-m-tpl-byte"></div>
-        </div>
-
-        <div class="gbz-m-tpl" data-cat="pilates" data-msg='[고객이름]님, 필라테스 등록 후 한 달이 지났어요!
-
-꾸준히 운동하시는 모습 정말 멋져요.
-다음 달도 함께 목표 향해 달려봐요 :)'>
-          <div class="gbz-m-tpl-head">
-            <div class="gbz-m-tpl-meta">
-              <div class="gbz-m-tpl-badges">
-                <span class="gbz-m-badge gbz-m-badge--info">필라테스</span>
-                <span class="gbz-m-badge gbz-m-badge--neutral">2차 · 30일 뒤</span>
-              </div>
-              <h3 class="gbz-m-tpl-title">필라테스 한 달 격려 메시지</h3>
-            </div>
-            <button class="gbz-m-tpl-copy" type="button">복사</button>
-          </div>
-          <div class="gbz-m-tpl-msg"></div>
-          <div class="gbz-m-tpl-byte"></div>
-        </div>
-
-        <div class="gbz-m-tpl" data-cat="ticket" data-msg='[고객이름]님, 등록하신 이용권이 곧 만료돼요.
-
-남은 횟수를 확인하시고, 연장이 필요하시면 답장 또는 방문해 주세요.
-재등록 시 첫 달 10% 할인 혜택 드려요 :)'>
-          <div class="gbz-m-tpl-head">
-            <div class="gbz-m-tpl-meta">
-              <div class="gbz-m-tpl-badges">
-                <span class="gbz-m-badge gbz-m-badge--info">티켓</span>
-                <span class="gbz-m-badge gbz-m-badge--neutral">3차 · 만료 임박</span>
-              </div>
-              <h3 class="gbz-m-tpl-title">이용권 만료 임박 안내</h3>
-            </div>
-            <button class="gbz-m-tpl-copy" type="button">복사</button>
-          </div>
-          <div class="gbz-m-tpl-msg"></div>
-          <div class="gbz-m-tpl-byte"></div>
-        </div>
-
-        <div class="gbz-m-tpl" data-cat="etc" data-msg='[고객이름]님, 다시 찾아주실 날을 기다리고 있어요.
-
-오랜만에 방문하시면 특별 할인 드려요.
-언제든 편하게 연락 주세요!'>
-          <div class="gbz-m-tpl-head">
-            <div class="gbz-m-tpl-meta">
-              <div class="gbz-m-tpl-badges">
-                <span class="gbz-m-badge gbz-m-badge--info">기타</span>
-                <span class="gbz-m-badge gbz-m-badge--neutral">재방문 유도</span>
-              </div>
-              <h3 class="gbz-m-tpl-title">재방문 유도 인사</h3>
-            </div>
-            <button class="gbz-m-tpl-copy" type="button">복사</button>
-          </div>
-          <div class="gbz-m-tpl-msg"></div>
-          <div class="gbz-m-tpl-byte"></div>
-        </div>
-
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
       </div>
+
+      <div class="gbz-m-tpl" data-cat="hair" data-msg='[고객이름]님, 시술 만족스러우셨나요?
+홈케어 트리트먼트를 함께 쓰시면 결이 부드럽게 유지돼요. 궁금한 점 있으시면 편하게 답장 주세요.
+— [샵이름]'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">헤어</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">1차 · 3일 뒤</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">시술 만족도 체크</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="hair" data-msg='[고객이름]님, 벌써 2주가 지났어요.
+뿌리염색이나 부분 정돈이 필요하시면 연락 주세요. 최적 시기에 관리해 드릴게요.
+— [샵이름]'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">헤어</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">2차 · 14일 뒤</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">2주차 정돈 안내</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="hair" data-msg='[고객이름]님, 어느새 두 달이 지났어요.
+다음 스타일링 예약 원하시면 편하게 남겨주세요. 늘 최선을 다해 준비해 드릴게요.
+— [샵이름]'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">헤어</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">3차 · 60일 뒤</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">다음 스타일링 제안</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="barber" data-msg='[고객이름]님, [예약일시] [시술이름] 예약 확정됐어요.
+편하신 시간에 맞춰 세팅 준비해둘게요.'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">바버</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">예약 등록 시</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">바버샵 예약 확정</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="barber" data-msg='[고객이름]님, 일주일이 지났는데 스타일 잘 유지되시나요?
+정돈이 필요하시면 편하게 방문해 주세요.
+— [샵이름]'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">바버</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">1차 · 7일 뒤</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">스타일 유지 안내</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="barber" data-msg='[고객이름]님, 스타일 유지에 가장 좋은 시기예요.
+이번 주 예약 가능하세요? 편하게 답장 주세요.
+— [샵이름]'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">바버</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">2차 · 21일 뒤</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">재방문 추천 시점</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="barber" data-msg='[고객이름]님, 한 달 반 만이에요.
+새 스타일 제안 드릴 수 있어요. 편하게 답장 주세요.
+— [샵이름]'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">바버</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">3차 · 45일 뒤</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">새 스타일 제안</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="nail" data-msg='[고객이름]님, [예약일시] [시술이름] 예약 접수됐어요.
+방문 전 큐티클 정리는 저희가 해드리니 별도 준비는 필요 없어요.
+— [샵이름]'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">네일</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">예약 등록 시</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">네일샵 예약 확정 + 안내</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="nail" data-msg='[고객이름]님, 네일 만족스러우셨나요?
+설거지·목욕 시 손을 자주 말려주시면 유지가 더 잘돼요.'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">네일</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">1차 · 3일 뒤</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">네일 유지 팁</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="nail" data-msg='[고객이름]님, 2주가 지났어요.
+들뜸이나 깨진 곳 있으면 A/S 방문해 주세요. 2주 이내는 무료로 도와드려요.
+— [샵이름]'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">네일</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">2차 · 14일 뒤</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">2주차 A/S 안내</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="nail" data-msg='[고객이름]님, 어느새 한 달이에요.
+새 아트 구경하러 오시면 예약 잡아드릴게요.
+— [샵이름]'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">네일</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">3차 · 28일 뒤</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">재방문 유도</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="semi" data-msg='[고객이름]님, [예약일시] [시술이름] 예약 확정됐어요.
+시술 당일은 메이크업 없이 방문 부탁드려요.'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">반영구</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">예약 등록 시</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">반영구 예약 확정</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="semi" data-msg='[고객이름]님, 색이 진하게 보이지만 일주일 뒤 50% 정도로 자연스러워져요.
+딱지는 자연스럽게 떨어지도록 두세요.
+— [샵이름]'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">반영구</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">1차 · 3일 뒤</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">초기 색 변화 안내</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="semi" data-msg='[고객이름]님, 한 달이 지났어요.
+리터치가 필요하신 분들은 연락 주세요. 적정 시기에 마무리해 드릴게요.
+— [샵이름]'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">반영구</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">2차 · 30일 뒤</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">리터치 안내</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="semi" data-msg='[고객이름]님, 3개월이 지나 컬러가 많이 연해지셨을 거예요.
+리터치 예약 원하시면 편하게 남겨주세요.
+— [샵이름]'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">반영구</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">3차 · 90일 뒤</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">색 유지 재방문</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="lashes" data-msg='[고객이름]님, [예약일시] [시술이름] 예약 접수됐어요.
+방문 전 마스카라와 아이크림은 피해주세요.'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">속눈썹</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">예약 등록 시</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">속눈썹 예약 확정</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="lashes" data-msg='[고객이름]님, 당일 24시간은 물과 사우나를 피해주세요.
+오일 제품도 이틀은 금지예요.
+— [샵이름]'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">속눈썹</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">1차 · 1일 뒤</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">시술 후 주의사항</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="lashes" data-msg='[고객이름]님, 2주차에 리필하면 가장 예쁘게 유지돼요.
+이번 주 예약 가능한 시간 안내드릴까요?
+— [샵이름]'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">속눈썹</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">2차 · 14일 뒤</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">리필 최적 시기</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="lashes" data-msg='[고객이름]님, 한 달이 지났어요.
+리필 또는 새 시술 원하시면 편하게 연락 주세요.
+— [샵이름]'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">속눈썹</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">3차 · 28일 뒤</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">재방문 안내</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="wax" data-msg='[고객이름]님, [예약일시] [시술이름] 예약 확정됐어요.
+방문 시 전날 각질 제거는 피해주세요.'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">왁싱</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">예약 등록 시</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">왁싱 예약 확정</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="wax" data-msg='[고객이름]님, 24시간 동안 뜨거운 목욕·사우나는 피해주세요.
+각질 관리는 3일 뒤부터 시작하세요.
+— [샵이름]'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">왁싱</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">1차 · 1일 뒤</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">시술 후 관리</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="wax" data-msg='[고객이름]님, 3주차가 왁싱 주기에 가장 좋아요.
+이번 주 가능한 시간 안내드릴게요.
+— [샵이름]'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">왁싱</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">2차 · 21일 뒤</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">재방문 추천 시기</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="wax" data-msg='[고객이름]님, 한 달 반이 지났어요.
+다음 관리가 필요하시면 예약 남겨주세요.
+— [샵이름]'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">왁싱</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">3차 · 45일 뒤</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">다음 관리 안내</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="tanning" data-msg='[고객이름]님, [예약일시] [시술이름] 예약 접수됐어요.
+샤워 후 로션·메이크업 없이 방문 부탁드려요.'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">태닝</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">예약 등록 시</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">태닝 예약 확정</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="tanning" data-msg='[고객이름]님, 24시간은 샤워와 수영을 피해주세요.
+수분 크림 꾸준히 발라주시면 색이 더 오래 유지돼요.
+— [샵이름]'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">태닝</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">1차 · 1일 뒤</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">시술 직후 주의</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="tanning" data-msg='[고객이름]님, 색이 자연스럽게 연해지는 시기예요.
+유지 원하시면 리터치 예약 주세요.
+— [샵이름]'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">태닝</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">2차 · 14일 뒤</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">리터치 추천 시기</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="tanning" data-msg='[고객이름]님, 한 달 지나 태닝이 거의 빠지셨을 거예요.
+새 시즌 관리 원하시면 편하게 연락 주세요.
+— [샵이름]'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">태닝</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">3차 · 30일 뒤</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">시즌 관리 안내</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="skin" data-msg='[고객이름]님, [예약일시] [시술이름] 예약 확정됐어요.
+당일은 메이크업 없이 오시면 더 좋아요.'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">피부관리</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">예약 등록 시</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">피부 관리 예약 확정</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="skin" data-msg='[고객이름]님, 24시간 세안 제한 잘 지키셨나요?
+붉은 기운은 며칠 내 가라앉아요. 자외선 차단제 꼭 챙겨주세요.
+— [샵이름]'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">피부관리</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">1차 · 3일 뒤</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">홈케어 안내</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="skin" data-msg='[고객이름]님, 3주차 관리가 효과를 최대로 유지해요.
+이번 주 예약 안내드릴까요?
+— [샵이름]'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">피부관리</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">2차 · 21일 뒤</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">정기 관리 추천</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="skin" data-msg='[고객이름]님, 피부 리듬상 다음 관리가 필요한 시기예요.
+편하게 답장 주시면 예약 잡아드릴게요.
+— [샵이름]'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">피부관리</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">3차 · 45일 뒤</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">피부 리듬 재방문</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="massage" data-msg='[고객이름]님, [예약일시] [시술이름] 예약 접수됐어요.
+편안한 복장으로 방문해 주세요.'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">마사지</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">예약 등록 시</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">마사지 예약 확정</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="massage" data-msg='[고객이름]님, 근육이 풀린 뒤라 수분 많이 섭취해 주세요.
+피곤감은 하루 이틀이면 가라앉아요.
+— [샵이름]'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">마사지</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">1차 · 1일 뒤</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">시술 후 회복</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="massage" data-msg='[고객이름]님, 2주 간격 관리가 몸에 가장 편해요.
+다음 방문 시기 안내드릴까요?
+— [샵이름]'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">마사지</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">2차 · 14일 뒤</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">정기 관리 안내</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="massage" data-msg='[고객이름]님, 한 달이 지났어요.
+뭉친 부분이 생겼다면 편하게 예약 남겨주세요.
+— [샵이름]'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">마사지</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">3차 · 30일 뒤</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">재방문 유도</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="makeup" data-msg='[고객이름]님, [예약일시] [시술이름] 예약 확정됐어요.
+착용하실 의상이나 분위기 미리 공유해 주시면 최적의 세팅 준비해 드릴게요.'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">메이크업</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">예약 등록 시</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">메이크업 예약 확정</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="makeup" data-msg='[고객이름]님, 어제 행사 잘 마무리되셨나요?
+메이크업 지우실 때는 전용 클렌저 사용을 추천드려요.
+— [샵이름]'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">메이크업</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">1차 · 1일 뒤</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">행사 마무리 인사</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="makeup" data-msg='[고객이름]님, 2주 전 찍은 사진 보시며 다음 컨셉 상담해 드릴 수 있어요.
+편하게 답장 주세요.
+— [샵이름]'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">메이크업</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">2차 · 14일 뒤</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">다음 컨셉 상담</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="makeup" data-msg='[고객이름]님, 다음 이벤트 일정 있으시면 미리 예약 주세요.
+편하게 세팅해 드릴게요.
+— [샵이름]'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">메이크업</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">3차 · 30일 뒤</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">일정 선예약 안내</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="scalp" data-msg='[고객이름]님, [예약일시] [시술이름] 예약 접수됐어요.
+시술 당일은 머리를 감지 않고 오시면 효과가 더 좋아요.'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">두피/탈모</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">예약 등록 시</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">두피 관리 예약 확정</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="scalp" data-msg='[고객이름]님, 샴푸 시 손톱 대신 손가락 지문으로 마사지해 주세요.
+드라이는 미지근한 바람으로 해주시면 좋아요.
+— [샵이름]'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">두피/탈모</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">1차 · 3일 뒤</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">홈케어 팁</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="scalp" data-msg='[고객이름]님, 두피 클리닉은 3주 주기가 가장 좋아요.
+이번 주 가능한 시간 알려드릴게요.
+— [샵이름]'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">두피/탈모</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">2차 · 21일 뒤</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">정기 클리닉 추천</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="scalp" data-msg='[고객이름]님, 한 달 반이 지났어요.
+꾸준한 관리가 중요해요. 다음 방문 편하게 남겨주세요.
+— [샵이름]'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">두피/탈모</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">3차 · 45일 뒤</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">재방문 독려</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="tattoo" data-msg='[고객이름]님, [예약일시] [시술이름] 예약 확정됐어요.
+시술 24시간 전 음주와 격한 운동은 피해주세요.'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">타투</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">예약 등록 시</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">타투 예약 확정</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="tattoo" data-msg='[고객이름]님, 첫 2~3일은 랩을 잘 유지해 주세요.
+세척 시 순한 비누로 가볍게 닦아주세요.
+— [샵이름]'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">타투</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">1차 · 2일 뒤</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">시술 후 관리</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="tattoo" data-msg='[고객이름]님, 딱지 거의 떨어지셨나요?
+수영장·사우나는 4주 뒤부터 가능해요.
+— [샵이름]'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">타투</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">2차 · 14일 뒤</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">중기 관리 안내</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="tattoo" data-msg='[고객이름]님, 발색이 안정된 시점이에요.
+리터치 필요하시면 사진 보내 주세요.
+— [샵이름]'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">타투</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">3차 · 60일 뒤</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">리터치 안내</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="pet" data-msg='[고객이름]님, [예약일시] [시술이름] 예약 접수됐어요.
+예방접종 수첩 챙겨주시고, 식사는 1시간 전에 마쳐주세요.'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">애견</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">예약 등록 시</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">애견 미용 예약 확정</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="pet" data-msg='[고객이름]님, 아이 스트레스 없이 잘 지내나요?
+자극적인 장소 외출은 하루 정도 피해주세요.
+— [샵이름]'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">애견</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">1차 · 2일 뒤</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">아이 컨디션 체크</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="pet" data-msg='[고객이름]님, 한 달이 지나 그루밍 시기가 돌아왔어요.
+편하신 시간 알려주시면 예약 잡아드릴게요.
+— [샵이름]'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">애견</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">2차 · 30일 뒤</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">다음 그루밍 안내</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="pet" data-msg='[고객이름]님, 두 달 지나 슬슬 관리가 필요한 시기예요.
+예약 원하시면 편하게 남겨주세요.
+— [샵이름]'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">애견</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">3차 · 60일 뒤</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">정기 관리 유도</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="pilates" data-msg='[고객이름]님, [예약일시] [시술이름] 수업 예약됐어요.
+편한 복장으로 10분 전 도착 부탁드려요.'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">필라테스</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">예약 등록 시</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">필라테스 수업 예약 확정</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="pilates" data-msg='[고객이름]님, 근육통은 1~2일 내 가라앉아요.
+스트레칭 꾸준히 해주시면 회복이 빨라져요.
+— [샵이름]'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">필라테스</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">1차 · 1일 뒤</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">첫 수업 후 안내</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="pilates" data-msg='[고객이름]님, 2주차가 습관 형성에 가장 중요해요.
+이번 주 수업도 기다리고 있을게요.
+— [샵이름]'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">필라테스</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">2차 · 14일 뒤</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">습관 형성 독려</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="pilates" data-msg='[고객이름]님, 한 달 동안 꾸준히 해주셨어요.
+다음 달도 목표 향해 함께 가요.
+— [샵이름]'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">필라테스</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">3차 · 30일 뒤</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">다음 달 동기부여</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="fit" data-msg='[고객이름]님, [예약일시] [시술이름] 수업 예약됐어요.
+수건과 물 챙겨 오시면 편해요.'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">피트니스</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">예약 등록 시</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">피트니스 수업 예약 확정</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="fit" data-msg='[고객이름]님, 첫 수업 잘 마치셨어요.
+단백질 섭취와 충분한 수면이 회복에 중요해요.
+— [샵이름]'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">피트니스</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">1차 · 1일 뒤</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">첫 수업 회복 안내</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="fit" data-msg='[고객이름]님, 2주 꾸준히 오시는 분들이 가장 빠르게 변화 느끼세요.
+다음 수업 기다릴게요.
+— [샵이름]'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">피트니스</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">2차 · 14일 뒤</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">꾸준함 독려</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="fit" data-msg='[고객이름]님, 한 달간 수고 많으셨어요.
+체성분 변화 확인해 볼까요? 편하게 답장 주세요.
+— [샵이름]'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">피트니스</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">3차 · 30일 뒤</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">체성분 확인 제안</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="etc" data-msg='[고객이름]님, [예약일시] [시술이름] 예약 접수됐어요.
+방문 전 문의사항 있으시면 편하게 답장 주세요.'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">기타</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">예약 등록 시</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">예약 확정 + 안내</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="etc" data-msg='[고객이름]님, 시술 만족스러우셨나요?
+불편하신 점 있으시면 바로 알려주세요.
+— [샵이름]'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">기타</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">1차 · 3일 뒤</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">만족도 체크</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="etc" data-msg='[고객이름]님, 3주가 지났어요.
+다음 관리 필요하시면 연락 주세요.
+— [샵이름]'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">기타</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">2차 · 21일 뒤</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">재방문 시기 안내</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+      <div class="gbz-m-tpl" data-cat="etc" data-msg='[고객이름]님, 오랜만에 뵙고 싶어요.
+편하게 답장 주세요.
+— [샵이름]'>
+        <div class="gbz-m-tpl-head">
+          <div class="gbz-m-tpl-meta">
+            <div class="gbz-m-tpl-badges">
+              <span class="gbz-m-badge gbz-m-badge--info">기타</span>
+              <span class="gbz-m-badge gbz-m-badge--neutral">3차 · 45일 뒤</span>
+            </div>
+            <h3 class="gbz-m-tpl-title">재방문 유도</h3>
+          </div>
+          <button class="gbz-m-tpl-copy" type="button">복사</button>
+        </div>
+        <div class="gbz-m-tpl-msg"></div>
+        <div class="gbz-m-tpl-byte"></div>
+      </div>
+
+    </div>
 
       <div class="gbz-m-tpl-empty" id="gbzMempty" style="display:none;">
         이 카테고리에는 아직 샘플이 없어요.
