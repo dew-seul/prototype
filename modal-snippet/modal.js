@@ -51,7 +51,7 @@
     tpl.querySelector('.gbz-m-tpl-msg').innerHTML = highlightVars(raw);
     const bytes = estimatedByteLength(raw);
     const byteEl = tpl.querySelector('.gbz-m-tpl-byte');
-    byteEl.textContent = '예상 ' + bytes + 'byte' + (bytes > 90 ? ' · 90byte 초과 시 LMS 발송' : '');
+    byteEl.textContent = '예상 ' + bytes + 'byte';
     if (bytes > 90) byteEl.classList.add('is-over');
   });
 
