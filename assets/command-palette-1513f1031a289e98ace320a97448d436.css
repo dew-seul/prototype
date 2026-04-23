@@ -1,0 +1,385 @@
+/* ================================================================
+   Command Palette (Cmd-K) — GBIZ-25324
+   Figma: 26_1Q_빠른 검색
+   ================================================================ */
+
+/* ── Wrapper (overlay 겸용) ── */
+.cmd-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    display: grid;
+    place-items: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    animation: cmdFadeIn 150ms ease-out;
+}
+
+/* ── Overlay (wrapper 배경으로 대체, div는 숨김) ── */
+.cmd-overlay {
+    display: none;
+}
+
+@keyframes cmdFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* ── Dialog Container ──
+   Figma: layout_RZZ17T → 500×600, borderRadius: 16px */
+.cmd-dialog {
+    position: relative;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 600px;
+    overflow: hidden;
+    background-color: #FFFFFF;                    /* fill_G4GXBN */
+    border-radius: 16px;
+    box-shadow: 0px 16px 48px rgba(0, 0, 0, 0.12),
+                0px 2px 8px rgba(0, 0, 0, 0.08);
+    animation: cmdSlideIn 150ms ease-out;
+}
+
+@keyframes cmdSlideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ── SearchInput ──
+   Figma: layout_12E4D4 → row, gap:8px, padding:16px 20px, height:52px (with border) */
+.cmd-search-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 20px;
+    height: 52px;
+    width: 100%;
+    border-bottom: 1px solid #DFE0E1;            /* fill_AAVMCP */
+    flex-shrink: 0;
+}
+
+.cmd-search-icon {
+    display: inline-block;
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    background-image: url('/resources/static/img/figma/icon-search-f1d974ccda09b723aac00b38f9a04c30.svg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.cmd-search-icon.cmd-search-icon--back {
+    background-image: url('/resources/static/img/figma/icon-back-f6dda07da6a9933fc1653a4cb9932737.svg');
+}
+
+.cmd-search-icon.clickable {
+    cursor: pointer;
+}
+.cmd-search-icon.clickable:hover {
+    opacity: 0.7;
+}
+
+.cmd-search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 0;
+    font-family: "Pretendard", "Noto Sans KR", sans-serif;
+    font-size: 14px;                              /* Sub Title/M 20 */
+    font-weight: 400;
+    line-height: 1.43;
+    color: #20232B;                               /* fill_4OX3IJ */
+}
+.cmd-search-input::placeholder {
+    color: #9FA1A4;
+    /* fill_S1H05K */
+}
+
+/* ── CommandList (scroll area) ──
+   Figma: layout_5KRV7Y → overflowScroll:y, 500×512
+   Figma: layout_R8ZAWH → column, gap:…, padding:16px 20px
+   Figma: layout_APX635 → column, gap:12px */
+.cmd-list {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    width: 100%;
+    gap: 0;
+    padding: 16px 16px 8px;
+}
+
+.cmd-list::-webkit-scrollbar {
+    width: 5px;
+
+}
+.cmd-list::-webkit-scrollbar-track {
+    background: transparent;
+    margin: 2px 0;
+}
+.cmd-list::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background: #404249;
+    border-right: 2px solid transparent;
+    background-clip: padding-box;
+}
+.cmd-list::-webkit-scrollbar-thumb:hover {
+    background: rgb(159, 161, 164);
+    border-right: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+/* ── CommandGroup ──
+   Figma: layout_PV4XIJ → column, gap:8px */
+.cmd-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+/* Figma: layout_S85I0X → row, gap:10px, padding:2px 12px
+   Text: Sub Title/R (13px 500), fill_KZBPI8 (#808186) */
+.cmd-group-heading {
+    padding: 2px 12px;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.54;
+    color: #808186;                               /* fill_KZBPI8 */
+}
+
+/* ── Group Divider ──
+   Figma: Divider component, fill_AAVMCP (#DFE0E1) */
+.cmd-group-divider {
+    flex-shrink: 0;
+    height: 1px;
+    background-color: #DFE0E1;                    /* fill_AAVMCP */
+    margin: 12px 12px;
+}
+
+/* ── CommandItem ──
+   Figma: layout_FUL2LB → row, justify:space-between, gap:2px, padding:8px 12px
+   Figma: borderRadius: 8px, fill_ONQTZT (#F9F9FB) on hover/selected */
+.cmd-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2px;
+    padding: 8px 12px;
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.cmd-item:hover,
+.cmd-item.selected {
+    background-color: #F9F9FB;                    /* fill_ONQTZT */
+}
+
+/* Figma: layout_TS3TJM → row, gap:8px */
+.cmd-item-label-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+    flex: 1;
+}
+
+.cmd-item-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #808186;                               /* fill_KZBPI8 */
+}
+
+/* Figma: layout_Z22XOB → column, gap:2px */
+.cmd-item-text-group {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+/* Figma: Sub Title/M 20 → Pretendard 500 14px, fill_4OX3IJ (#20232B) */
+.cmd-item-title {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.43;
+    color: #20232B;                               /* fill_4OX3IJ */
+}
+
+/* Figma: Text/S → Pretendard 400 12px, fill_P5KS7T (#9FA1A4) */
+.cmd-item-description {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #9FA1A4;                               /* fill_P5KS7T */
+}
+
+
+.cmd-item-submenu-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+}
+.cmd-item-submenu-arrow svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* ── EmptyState ── */
+.cmd-empty {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #9FA1A4;                               /* fill_P5KS7T */
+}
+
+/* ── Footer ──
+   Figma: layout_LVKV13 → row, gap:10px, padding:12px 20px
+   Figma: border-top not explicit, but consistent with divider pattern */
+.cmd-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    gap: 12px;
+    padding: 12px 16px;
+    border-top: 1px solid #DFE0E1;               /* fill_AAVMCP */
+    flex-shrink: 0;
+}
+
+/* Figma: footer text → Sub Title/S (12px 500), fill_P5KS7T (#9FA1A4) */
+.cmd-footer-hint {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #9FA1A4;                               /* fill_P5KS7T */
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+/* Figma: key badge → Sub Title/XS (11px 500), fill_KZBPI8 (#808186),
+   background: fill_EFF0F0 or similar  */
+.cmd-footer-key {
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1.45;
+    background-color: #EFF0F0;
+    border: 1px solid rgb(223, 224, 225);
+    color: #808186;                               /* fill_KZBPI8 */
+}
+
+/* ── SearchTrigger (sidebar) ──
+   Figma: layout_396LW7 → row, justify:space-between, gap:134px, padding:0 8px, width:224px
+   Figma: layout_CLPBOA → row, justify:space-between, padding:8px 0 */
+.search-trigger-wrapper {
+    padding: 0 8px;
+    width: 100%;
+    flex-shrink: 0;
+}
+
+/* Figma: fills: fill_21XCFI (rgba(255,255,255,0.12)), stroke: stroke_I93QYY (rgba(255,255,255,0.15) 1px), borderRadius: 4px on badge only */
+.search-trigger-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 36px;
+    padding: 0 8px;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    background-color: transparent;
+    font-family: "Pretendard", "Noto Sans KR", sans-serif;
+}
+.search-trigger-btn:hover {
+    background-color: rgb(64, 66, 73);
+    color: #fff;
+    border-radius: 8px;
+    transition: background-color 120ms, color 120ms;
+    .search-trigger-text {
+        color: #fff;
+    }
+}
+
+/* Figma: layout_NV1K49 → row, gap:4px */
+.search-trigger-left {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Figma: icon=search, 18×18 */
+.search-trigger-icon {
+    display: inline-block;
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    background-image: url('/resources/static/img/figma/icon-search-f1d974ccda09b723aac00b38f9a04c30.svg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: brightness(0) invert(1);
+}
+
+/* Figma: Sub Title/R (13px 500), fill_S1H05K (#BFC0C2) */
+.search-trigger-text {
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.54;
+    color: #BFC0C2;                               /* fill_S1H05K */
+    white-space: nowrap;
+}
+
+/* Figma: Sub Title/XS (11px 500), fill_P5KS7T (#9FA1A4),
+   background: fill_21XCFI, border: stroke_I93QYY, borderRadius: 4px,
+   padding: 2px 6px (layout_SMKJMG) */
+.search-trigger-badge {
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.45;
+    text-align: center;
+    color: rgb(191, 192, 194);
+    border: 1px solid rgba(255, 255, 255, 0.15);  /* stroke_I93QYY */
+    flex-shrink: 0;
+}
+.search-trigger-btn:hover .search-trigger-badge {
+   color: rgb(159, 161, 164);
+
+}

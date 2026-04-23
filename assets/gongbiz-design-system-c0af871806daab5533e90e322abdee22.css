@@ -1,0 +1,1601 @@
+@charset "UTF-8";
+/** design-system 파일을 import 해옵니다. */
+.text-align__center {
+  text-align: center;
+}
+.text-align__left {
+  text-align: left;
+}
+.text-align__right {
+  text-align: right;
+}
+
+.justify-content__center {
+  justify-content: center;
+}
+
+.display__flex {
+  display: flex;
+}
+.display__block {
+  display: block;
+}
+.display__inline-block {
+  display: inline-block;
+}
+.display__inline {
+  display: inline;
+}
+.display__none {
+  display: none;
+}
+
+:root {
+  /* ************ color ************ */
+  /* primary */
+  --color-primary-100: #ECF3FF;
+  --color-primary-150: #BDD8FF;
+  --color-primary-200: #90BEFF;
+  --color-primary-300: #227EFF;
+  --color-primary-400: #0D51FF;
+  --color-primary-500: #0534FF;
+  /* secondary */
+  --color-secondary-100: #F0EFFF;
+  --color-secondary-150: #D3CEFF;
+  --color-secondary-200: #B6ACFF;
+  --color-secondary-300: #6D5AFF;
+  --color-secondary-400: #4E3DFF;
+  --color-secondary-500: #3829FF;
+  /* tertiary */
+  --color-tertiary-100: #EAFAFA;
+  --color-tertiary-150: #C1F0EF;
+  --color-tertiary-200: #98E6E4;
+  --color-tertiary-300: #31CDC9;
+  --color-tertiary-400: #15B1AB;
+  --color-tertiary-500: #099992;
+  /* gray */
+  --color-gray-white: #FFFFFF;
+  --color-gray-50: #EFF0F0;
+  --color-gray-100: #DFE0E1;
+  --color-gray-200: #BFC0C2;
+  --color-gray-300: #9FA1A4;
+  --color-gray-400: #808186;
+  --color-gray-500: #606268;
+  --color-gray-600: #404249;
+  --color-gray-700: #20232B;
+  /* bg */
+  --color-bg-100: #FFFFFF;
+  --color-bg-200: #F9F9FB;
+  --color-bg-300: #ECF3FF;
+  /* red */
+  --color-red-100: #FEECEC;
+  --color-red-150: #FCEEED;
+  --color-red-200: #F79E9E;
+  --color-red-300: #F03E3E;
+  --color-red-400: #E20F0F;
+  --color-red-500: #D50404;
+  /* yellow */
+  --color-yellow-100: #FFFAEF;
+  --color-yellow-150: #FFEFCE;
+  --color-yellow-200: #FFE4AD;
+  --color-yellow-300: #FFC95C;
+  --color-yellow-400: #FF9E21;
+  --color-yellow-500: #FF7D0C;
+  /* effect */
+  --color-dim: #0000004D;
+  --color-shadow-1: #227EFF1A;
+  --color-shadow-2: #00000033;
+}
+
+.m4 {
+  margin: 4px !important;
+}
+
+.mx4 {
+  margin: 0 4px !important;
+}
+
+.my4 {
+  margin: 4px 0px !important;
+}
+
+.mt4 {
+  margin-top: 4px !important;
+}
+
+.mr4 {
+  margin-right: 4px !important;
+}
+
+.mb4 {
+  margin-bottom: 4px !important;
+}
+
+.ml4 {
+  margin-left: 4px !important;
+}
+
+.p4 {
+  padding: 4px !important;
+}
+
+.px4 {
+  padding: 0 4px !important;
+}
+
+.py4 {
+  padding: 4px 0px !important;
+}
+
+.pt4 {
+  padding-top: 4px !important;
+}
+
+.pr4 {
+  padding-right: 4px !important;
+}
+
+.pb4 {
+  padding-bottom: 4px !important;
+}
+
+.pl4 {
+  padding-left: 4px !important;
+}
+
+.gap4 {
+  gap: 4px !important;
+}
+
+.m8 {
+  margin: 8px !important;
+}
+
+.mx8 {
+  margin: 0 8px !important;
+}
+
+.my8 {
+  margin: 8px 0px !important;
+}
+
+.mt8 {
+  margin-top: 8px !important;
+}
+
+.mr8 {
+  margin-right: 8px !important;
+}
+
+.mb8 {
+  margin-bottom: 8px !important;
+}
+
+.ml8 {
+  margin-left: 8px !important;
+}
+
+.p8 {
+  padding: 8px !important;
+}
+
+.px8 {
+  padding: 0 8px !important;
+}
+
+.py8 {
+  padding: 8px 0px !important;
+}
+
+.pt8 {
+  padding-top: 8px !important;
+}
+
+.pr8 {
+  padding-right: 8px !important;
+}
+
+.pb8 {
+  padding-bottom: 8px !important;
+}
+
+.pl8 {
+  padding-left: 8px !important;
+}
+
+.gap8 {
+  gap: 8px !important;
+}
+
+.m12 {
+  margin: 12px !important;
+}
+
+.mx12 {
+  margin: 0 12px !important;
+}
+
+.my12 {
+  margin: 12px 0px !important;
+}
+
+.mt12 {
+  margin-top: 12px !important;
+}
+
+.mr12 {
+  margin-right: 12px !important;
+}
+
+.mb12 {
+  margin-bottom: 12px !important;
+}
+
+.ml12 {
+  margin-left: 12px !important;
+}
+
+.p12 {
+  padding: 12px !important;
+}
+
+.px12 {
+  padding: 0 12px !important;
+}
+
+.py12 {
+  padding: 12px 0px !important;
+}
+
+.pt12 {
+  padding-top: 12px !important;
+}
+
+.pr12 {
+  padding-right: 12px !important;
+}
+
+.pb12 {
+  padding-bottom: 12px !important;
+}
+
+.pl12 {
+  padding-left: 12px !important;
+}
+
+.gap12 {
+  gap: 12px !important;
+}
+
+.m16 {
+  margin: 16px !important;
+}
+
+.mx16 {
+  margin: 0 16px !important;
+}
+
+.my16 {
+  margin: 16px 0px !important;
+}
+
+.mt16 {
+  margin-top: 16px !important;
+}
+
+.mr16 {
+  margin-right: 16px !important;
+}
+
+.mb16 {
+  margin-bottom: 16px !important;
+}
+
+.ml16 {
+  margin-left: 16px !important;
+}
+
+.p16 {
+  padding: 16px !important;
+}
+
+.px16 {
+  padding: 0 16px !important;
+}
+
+.py16 {
+  padding: 16px 0px !important;
+}
+
+.pt16 {
+  padding-top: 16px !important;
+}
+
+.pr16 {
+  padding-right: 16px !important;
+}
+
+.pb16 {
+  padding-bottom: 16px !important;
+}
+
+.pl16 {
+  padding-left: 16px !important;
+}
+
+.gap16 {
+  gap: 16px !important;
+}
+
+.m20 {
+  margin: 20px !important;
+}
+
+.mx20 {
+  margin: 0 20px !important;
+}
+
+.my20 {
+  margin: 20px 0px !important;
+}
+
+.mt20 {
+  margin-top: 20px !important;
+}
+
+.mr20 {
+  margin-right: 20px !important;
+}
+
+.mb20 {
+  margin-bottom: 20px !important;
+}
+
+.ml20 {
+  margin-left: 20px !important;
+}
+
+.p20 {
+  padding: 20px !important;
+}
+
+.px20 {
+  padding: 0 20px !important;
+}
+
+.py20 {
+  padding: 20px 0px !important;
+}
+
+.pt20 {
+  padding-top: 20px !important;
+}
+
+.pr20 {
+  padding-right: 20px !important;
+}
+
+.pb20 {
+  padding-bottom: 20px !important;
+}
+
+.pl20 {
+  padding-left: 20px !important;
+}
+
+.gap20 {
+  gap: 20px !important;
+}
+
+.m24 {
+  margin: 24px !important;
+}
+
+.mx24 {
+  margin: 0 24px !important;
+}
+
+.my24 {
+  margin: 24px 0px !important;
+}
+
+.mt24 {
+  margin-top: 24px !important;
+}
+
+.mr24 {
+  margin-right: 24px !important;
+}
+
+.mb24 {
+  margin-bottom: 24px !important;
+}
+
+.ml24 {
+  margin-left: 24px !important;
+}
+
+.p24 {
+  padding: 24px !important;
+}
+
+.px24 {
+  padding: 0 24px !important;
+}
+
+.py24 {
+  padding: 24px 0px !important;
+}
+
+.pt24 {
+  padding-top: 24px !important;
+}
+
+.pr24 {
+  padding-right: 24px !important;
+}
+
+.pb24 {
+  padding-bottom: 24px !important;
+}
+
+.pl24 {
+  padding-left: 24px !important;
+}
+
+.gap24 {
+  gap: 24px !important;
+}
+
+.m28 {
+  margin: 28px !important;
+}
+
+.mx28 {
+  margin: 0 28px !important;
+}
+
+.my28 {
+  margin: 28px 0px !important;
+}
+
+.mt28 {
+  margin-top: 28px !important;
+}
+
+.mr28 {
+  margin-right: 28px !important;
+}
+
+.mb28 {
+  margin-bottom: 28px !important;
+}
+
+.ml28 {
+  margin-left: 28px !important;
+}
+
+.p28 {
+  padding: 28px !important;
+}
+
+.px28 {
+  padding: 0 28px !important;
+}
+
+.py28 {
+  padding: 28px 0px !important;
+}
+
+.pt28 {
+  padding-top: 28px !important;
+}
+
+.pr28 {
+  padding-right: 28px !important;
+}
+
+.pb28 {
+  padding-bottom: 28px !important;
+}
+
+.pl28 {
+  padding-left: 28px !important;
+}
+
+.gap28 {
+  gap: 28px !important;
+}
+
+.m32 {
+  margin: 32px !important;
+}
+
+.mx32 {
+  margin: 0 32px !important;
+}
+
+.my32 {
+  margin: 32px 0px !important;
+}
+
+.mt32 {
+  margin-top: 32px !important;
+}
+
+.mr32 {
+  margin-right: 32px !important;
+}
+
+.mb32 {
+  margin-bottom: 32px !important;
+}
+
+.ml32 {
+  margin-left: 32px !important;
+}
+
+.p32 {
+  padding: 32px !important;
+}
+
+.px32 {
+  padding: 0 32px !important;
+}
+
+.py32 {
+  padding: 32px 0px !important;
+}
+
+.pt32 {
+  padding-top: 32px !important;
+}
+
+.pr32 {
+  padding-right: 32px !important;
+}
+
+.pb32 {
+  padding-bottom: 32px !important;
+}
+
+.pl32 {
+  padding-left: 32px !important;
+}
+
+.gap32 {
+  gap: 32px !important;
+}
+
+.m36 {
+  margin: 36px !important;
+}
+
+.mx36 {
+  margin: 0 36px !important;
+}
+
+.my36 {
+  margin: 36px 0px !important;
+}
+
+.mt36 {
+  margin-top: 36px !important;
+}
+
+.mr36 {
+  margin-right: 36px !important;
+}
+
+.mb36 {
+  margin-bottom: 36px !important;
+}
+
+.ml36 {
+  margin-left: 36px !important;
+}
+
+.p36 {
+  padding: 36px !important;
+}
+
+.px36 {
+  padding: 0 36px !important;
+}
+
+.py36 {
+  padding: 36px 0px !important;
+}
+
+.pt36 {
+  padding-top: 36px !important;
+}
+
+.pr36 {
+  padding-right: 36px !important;
+}
+
+.pb36 {
+  padding-bottom: 36px !important;
+}
+
+.pl36 {
+  padding-left: 36px !important;
+}
+
+.gap36 {
+  gap: 36px !important;
+}
+
+.m40 {
+  margin: 40px !important;
+}
+
+.mx40 {
+  margin: 0 40px !important;
+}
+
+.my40 {
+  margin: 40px 0px !important;
+}
+
+.mt40 {
+  margin-top: 40px !important;
+}
+
+.mr40 {
+  margin-right: 40px !important;
+}
+
+.mb40 {
+  margin-bottom: 40px !important;
+}
+
+.ml40 {
+  margin-left: 40px !important;
+}
+
+.p40 {
+  padding: 40px !important;
+}
+
+.px40 {
+  padding: 0 40px !important;
+}
+
+.py40 {
+  padding: 40px 0px !important;
+}
+
+.pt40 {
+  padding-top: 40px !important;
+}
+
+.pr40 {
+  padding-right: 40px !important;
+}
+
+.pb40 {
+  padding-bottom: 40px !important;
+}
+
+.pl40 {
+  padding-left: 40px !important;
+}
+
+.gap40 {
+  gap: 40px !important;
+}
+
+.m44 {
+  margin: 44px !important;
+}
+
+.mx44 {
+  margin: 0 44px !important;
+}
+
+.my44 {
+  margin: 44px 0px !important;
+}
+
+.mt44 {
+  margin-top: 44px !important;
+}
+
+.mr44 {
+  margin-right: 44px !important;
+}
+
+.mb44 {
+  margin-bottom: 44px !important;
+}
+
+.ml44 {
+  margin-left: 44px !important;
+}
+
+.p44 {
+  padding: 44px !important;
+}
+
+.px44 {
+  padding: 0 44px !important;
+}
+
+.py44 {
+  padding: 44px 0px !important;
+}
+
+.pt44 {
+  padding-top: 44px !important;
+}
+
+.pr44 {
+  padding-right: 44px !important;
+}
+
+.pb44 {
+  padding-bottom: 44px !important;
+}
+
+.pl44 {
+  padding-left: 44px !important;
+}
+
+.gap44 {
+  gap: 44px !important;
+}
+
+.m48 {
+  margin: 48px !important;
+}
+
+.mx48 {
+  margin: 0 48px !important;
+}
+
+.my48 {
+  margin: 48px 0px !important;
+}
+
+.mt48 {
+  margin-top: 48px !important;
+}
+
+.mr48 {
+  margin-right: 48px !important;
+}
+
+.mb48 {
+  margin-bottom: 48px !important;
+}
+
+.ml48 {
+  margin-left: 48px !important;
+}
+
+.p48 {
+  padding: 48px !important;
+}
+
+.px48 {
+  padding: 0 48px !important;
+}
+
+.py48 {
+  padding: 48px 0px !important;
+}
+
+.pt48 {
+  padding-top: 48px !important;
+}
+
+.pr48 {
+  padding-right: 48px !important;
+}
+
+.pb48 {
+  padding-bottom: 48px !important;
+}
+
+.pl48 {
+  padding-left: 48px !important;
+}
+
+.gap48 {
+  gap: 48px !important;
+}
+
+.m52 {
+  margin: 52px !important;
+}
+
+.mx52 {
+  margin: 0 52px !important;
+}
+
+.my52 {
+  margin: 52px 0px !important;
+}
+
+.mt52 {
+  margin-top: 52px !important;
+}
+
+.mr52 {
+  margin-right: 52px !important;
+}
+
+.mb52 {
+  margin-bottom: 52px !important;
+}
+
+.ml52 {
+  margin-left: 52px !important;
+}
+
+.p52 {
+  padding: 52px !important;
+}
+
+.px52 {
+  padding: 0 52px !important;
+}
+
+.py52 {
+  padding: 52px 0px !important;
+}
+
+.pt52 {
+  padding-top: 52px !important;
+}
+
+.pr52 {
+  padding-right: 52px !important;
+}
+
+.pb52 {
+  padding-bottom: 52px !important;
+}
+
+.pl52 {
+  padding-left: 52px !important;
+}
+
+.gap52 {
+  gap: 52px !important;
+}
+
+.m60 {
+  margin: 60px !important;
+}
+
+.mx60 {
+  margin: 0 60px !important;
+}
+
+.my60 {
+  margin: 60px 0px !important;
+}
+
+.mt60 {
+  margin-top: 60px !important;
+}
+
+.mr60 {
+  margin-right: 60px !important;
+}
+
+.mb60 {
+  margin-bottom: 60px !important;
+}
+
+.ml60 {
+  margin-left: 60px !important;
+}
+
+.p60 {
+  padding: 60px !important;
+}
+
+.px60 {
+  padding: 0 60px !important;
+}
+
+.py60 {
+  padding: 60px 0px !important;
+}
+
+.pt60 {
+  padding-top: 60px !important;
+}
+
+.pr60 {
+  padding-right: 60px !important;
+}
+
+.pb60 {
+  padding-bottom: 60px !important;
+}
+
+.pl60 {
+  padding-left: 60px !important;
+}
+
+.gap60 {
+  gap: 60px !important;
+}
+
+.m100 {
+  margin: 100px !important;
+}
+
+.mx100 {
+  margin: 0 100px !important;
+}
+
+.my100 {
+  margin: 100px 0px !important;
+}
+
+.mt100 {
+  margin-top: 100px !important;
+}
+
+.mr100 {
+  margin-right: 100px !important;
+}
+
+.mb100 {
+  margin-bottom: 100px !important;
+}
+
+.ml100 {
+  margin-left: 100px !important;
+}
+
+.p100 {
+  padding: 100px !important;
+}
+
+.px100 {
+  padding: 0 100px !important;
+}
+
+.py100 {
+  padding: 100px 0px !important;
+}
+
+.pt100 {
+  padding-top: 100px !important;
+}
+
+.pr100 {
+  padding-right: 100px !important;
+}
+
+.pb100 {
+  padding-bottom: 100px !important;
+}
+
+.pl100 {
+  padding-left: 100px !important;
+}
+
+.gap100 {
+  gap: 100px !important;
+}
+
+:root {
+  /* ************ font-weight ************ */
+  --font-weight-bold: 700;
+  --font-weight-medium: 500;
+  --font-weight-regular: 400;
+  /* ************ typography font-size ************ */
+  --font-size-xxl:24px;
+  --font-size-xl:20px;
+  --font-size-l:16px;
+  --font-size-m:14px;
+  --font-size-s:12px;
+  --font-size-xs:11px;
+  /* ************ typography font-weight ************ */
+  --font-weight-title: var(--font-weight-bold);
+  --font-weight-subtitle: var(--font-weight-medium);
+  --font-weight-text: var(--font-weight-regular);
+  /* ************ typography line-height ************ */
+  --line-height-xxl:36px;
+  --line-height-xl:32px;
+  --line-height-l:24px;
+  --line-height-m-24:24px;
+  --line-height-m-20:20px;
+  --line-height-s:20px;
+  --line-height-xs:16px;
+}
+
+/*
+* @description css class 생성
+* ex)
+* .title-xxl {
+*   font-size:var(--font-size-xxl);
+*   font-weight:var(--font-size-title);
+*   line-height:var(--line-height-xxl);
+* }
+*/
+.title-xxl {
+  font-size: var(--font-size-xxl);
+  font-weight: var(--font-weight-title);
+  line-height: var(--line-height-xxl);
+}
+
+.title-xl {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-title);
+  line-height: var(--line-height-xl);
+}
+
+.title-l {
+  font-size: var(--font-size-l);
+  font-weight: var(--font-weight-title);
+  line-height: var(--line-height-l);
+}
+
+.title-m-24 {
+  font-size: var(--font-size-m);
+  font-weight: var(--font-weight-title);
+  line-height: var(--line-height-m-24);
+}
+
+.title-m-20 {
+  font-size: var(--font-size-m);
+  font-weight: var(--font-weight-title);
+  line-height: var(--line-height-m-20);
+}
+
+.title-s {
+  font-size: var(--font-size-s);
+  font-weight: var(--font-weight-title);
+  line-height: var(--line-height-s);
+}
+
+.subtitle-xxl {
+  font-size: var(--font-size-xxl);
+  font-weight: var(--font-weight-subtitle);
+  line-height: var(--line-height-xxl);
+}
+
+.subtitle-xl {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-subtitle);
+  line-height: var(--line-height-xl);
+}
+
+.subtitle-l {
+  font-size: var(--font-size-l);
+  font-weight: var(--font-weight-subtitle);
+  line-height: var(--line-height-l);
+}
+
+.subtitle-m-24 {
+  font-size: var(--font-size-m);
+  font-weight: var(--font-weight-subtitle);
+  line-height: var(--line-height-m-24);
+}
+
+.subtitle-m-20 {
+  font-size: var(--font-size-m);
+  font-weight: var(--font-weight-subtitle);
+  line-height: var(--line-height-m-20);
+}
+
+.subtitle-s {
+  font-size: var(--font-size-s);
+  font-weight: var(--font-weight-subtitle);
+  line-height: var(--line-height-s);
+}
+
+.text-xxl {
+  font-size: var(--font-size-xxl);
+  font-weight: var(--font-weight-text);
+  line-height: var(--line-height-xxl);
+}
+
+.text-xl {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-text);
+  line-height: var(--line-height-xl);
+}
+
+.text-l {
+  font-size: var(--font-size-l);
+  font-weight: var(--font-weight-text);
+  line-height: var(--line-height-l);
+}
+
+.text-m-24 {
+  font-size: var(--font-size-m);
+  font-weight: var(--font-weight-text);
+  line-height: var(--line-height-m-24);
+}
+
+.text-m-20 {
+  font-size: var(--font-size-m);
+  font-weight: var(--font-weight-text);
+  line-height: var(--line-height-m-20);
+}
+
+.text-s {
+  font-size: var(--font-size-s);
+  font-weight: var(--font-weight-text);
+  line-height: var(--line-height-s);
+}
+
+/*
+* @description typography css root 생성
+* ex)
+* root {
+*   --title-xxl-font-size:var(--font-size-xxl);
+* }
+*/
+:root {
+  --title-xxl-font-size: var(--font-size-xxl);
+  --title-xxl-font-weight: var(--font-weight-title);
+  --title-xxl-line-height: var(--line-height-xxl);
+  --title-xl-font-size: var(--font-size-xl);
+  --title-xl-font-weight: var(--font-weight-title);
+  --title-xl-line-height: var(--line-height-xl);
+  --title-l-font-size: var(--font-size-l);
+  --title-l-font-weight: var(--font-weight-title);
+  --title-l-line-height: var(--line-height-l);
+  --title-m-24-font-size: var(--font-size-m);
+  --title-m-24-font-weight: var(--font-weight-title);
+  --title-m-24-line-height: var(--line-height-m-24);
+  --title-m-20-font-size: var(--font-size-m);
+  --title-m-20-font-weight: var(--font-weight-title);
+  --title-m-20-line-height: var(--line-height-m-20);
+  --title-s-font-size: var(--font-size-s);
+  --title-s-font-weight: var(--font-weight-title);
+  --title-s-line-height: var(--line-height-s);
+  --subtitle-xxl-font-size: var(--font-size-xxl);
+  --subtitle-xxl-font-weight: var(--font-weight-subtitle);
+  --subtitle-xxl-line-height: var(--line-height-xxl);
+  --subtitle-xl-font-size: var(--font-size-xl);
+  --subtitle-xl-font-weight: var(--font-weight-subtitle);
+  --subtitle-xl-line-height: var(--line-height-xl);
+  --subtitle-l-font-size: var(--font-size-l);
+  --subtitle-l-font-weight: var(--font-weight-subtitle);
+  --subtitle-l-line-height: var(--line-height-l);
+  --subtitle-m-24-font-size: var(--font-size-m);
+  --subtitle-m-24-font-weight: var(--font-weight-subtitle);
+  --subtitle-m-24-line-height: var(--line-height-m-24);
+  --subtitle-m-20-font-size: var(--font-size-m);
+  --subtitle-m-20-font-weight: var(--font-weight-subtitle);
+  --subtitle-m-20-line-height: var(--line-height-m-20);
+  --subtitle-s-font-size: var(--font-size-s);
+  --subtitle-s-font-weight: var(--font-weight-subtitle);
+  --subtitle-s-line-height: var(--line-height-s);
+  --text-xxl-font-size: var(--font-size-xxl);
+  --text-xxl-font-weight: var(--font-weight-text);
+  --text-xxl-line-height: var(--line-height-xxl);
+  --text-xl-font-size: var(--font-size-xl);
+  --text-xl-font-weight: var(--font-weight-text);
+  --text-xl-line-height: var(--line-height-xl);
+  --text-l-font-size: var(--font-size-l);
+  --text-l-font-weight: var(--font-weight-text);
+  --text-l-line-height: var(--line-height-l);
+  --text-m-24-font-size: var(--font-size-m);
+  --text-m-24-font-weight: var(--font-weight-text);
+  --text-m-24-line-height: var(--line-height-m-24);
+  --text-m-20-font-size: var(--font-size-m);
+  --text-m-20-font-weight: var(--font-weight-text);
+  --text-m-20-line-height: var(--line-height-m-20);
+  --text-s-font-size: var(--font-size-s);
+  --text-s-font-weight: var(--font-weight-text);
+  --text-s-line-height: var(--line-height-s);
+}
+
+/*
+* @description 아이콘의 사이즈 css를 생성합니다.
+* ex)
+* .icon--size-24 {
+*   width:24px;
+*   height:24px;
+* }
+*/
+/*
+* @description 아이콘 background-image css를 생성합니다.
+* ex)
+* .icon__아이콘이름 {
+*   background-image:url('/resources/static/img/figma/icon-아이콘이름.svg');
+* }
+*/
+/*
+* @description 아이콘 사이즈 - 4의 배수
+*/
+/*
+* @description 아이콘 이름을 추가합니다.
+* - /resources/static/img/figma 폴더 내부의 svg 파일 기준으로 아이콘을 추가합니다.
+* - 아이콘의 파일 형식은 다음과 같아야합니다.
+* - icon-아이콘이름.svg
+*/
+.icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  position: relative;
+  flex-shrink: 0;
+}
+.icon--size-8 {
+  width: 8px;
+  height: 8px;
+}
+.icon--size-12 {
+  width: 12px;
+  height: 12px;
+}
+.icon--size-16 {
+  width: 16px;
+  height: 16px;
+}
+.icon--size-20 {
+  width: 20px;
+  height: 20px;
+}
+.icon--size-24 {
+  width: 24px;
+  height: 24px;
+}
+.icon--size-28 {
+  width: 28px;
+  height: 28px;
+}
+.icon--size-32 {
+  width: 32px;
+  height: 32px;
+}
+.icon--size-36 {
+  width: 36px;
+  height: 36px;
+}
+.icon--size-40 {
+  width: 40px;
+  height: 40px;
+}
+.icon--size-44 {
+  width: 44px;
+  height: 44px;
+}
+.icon--size-48 {
+  width: 48px;
+  height: 48px;
+}
+.icon::after {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.icon__right-small::after {
+  background-image: url("/resources/static/img/figma/icon-right-small-5c602b9a5f45f03839d47de7d39bd570.svg");
+}
+
+.icon-right-small--gray::after {
+  filter: brightness(0) saturate(100%) invert(39%) sepia(0%) saturate(0%)
+    hue-rotate(0deg) brightness(0%) contrast(0%);
+}
+.icon__up-small::after {
+  background-image: url("/resources/static/img/figma/icon-up-small-46380f29f2029204961120dc539e548c.svg");
+}
+
+.icon-up-small--rotated {
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.icon-up-small--gray::after {
+  filter: brightness(0) saturate(100%) invert(39%) sepia(0%) saturate(0%)
+    hue-rotate(0deg) brightness(0%) contrast(0%);
+}
+.icon__gongbizstore::after {
+  background-image: url("/resources/static/img/figma/icon-gongbizstore-bc06a261288bfc6cf42a80040c40e3bf.svg");
+}
+.icon__outlink::after {
+  background-image: url("/resources/static/img/figma/icon-outlink-7bd069672b8c971b262faf026c6faa32.svg");
+}
+.icon__reserve-state-customer::after {
+  background-image: url("/resources/static/img/figma/icon-reserve-state-customer-30b1e864b1d351efb3d7175d65f43538.svg");
+}
+.icon__password-eye-open::after {
+  background-image: url("/resources/static/img/figma/icon-password-eye-open-96f994845e75ef37966863412e709154.svg");
+}
+.icon__password-eye-close::after {
+  background-image: url("/resources/static/img/figma/icon-password-eye-close-d23aa4e02423c3d901952f0c762806d1.svg");
+}
+
+/**
+@description text-field 컴포넌트 css
+
+@example text-field 기본
+<div class="text-field">
+    <div class="text-field__input-wrapper">
+        <input class="text-field__input" placeholder="아이디"/>
+    </div>
+</div>
+
+@example text-field 아이콘 포함
+<div class="text-field">
+    <div class="text-field__input-wrapper text-field__input-wrapper--has-icon">
+        <input class="text-field__input" placeholder="아이디"/>
+        <button class="text-field__input-icon">
+          // image 넣기
+        </button>
+    </div>
+</div>
+
+@example text-field 에러
+<div class="text-field text-field--error">
+    <div class="text-field__input-wrapper">
+        <input class="text-field__input" placeholder="아이디"/>
+    </div>
+</div>
+*/
+.text-field.design-system {
+  background: var(--color-gray-white);
+  width: 100%;
+  /** input wrapper */
+  /** input */
+}
+.text-field.design-system .text-field__input-wrapper {
+  position: relative;
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+}
+.text-field.design-system .text-field__input-wrapper.text-field__input-wrapper--has-icon .text-field__input {
+  padding-right: 20px;
+}
+.text-field.design-system .text-field__input-icon {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+  width: 20px;
+  height: 20px;
+}
+.text-field.design-system .text-field__input-icon i {
+  width: inherit;
+  height: inherit;
+}
+.text-field.design-system .text-field__input {
+  width: 100%;
+  height: 44px;
+  font-size: var(--font-size-m);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-m-20);
+  color: var(--color-gray-700);
+  border: 0;
+  border-bottom: 1px solid var(--color-gray-100);
+}
+.text-field.design-system .text-field__input::placeholder {
+  color: var(--color-gray-300);
+}
+.text-field.design-system .text-field__input:not(:placeholder-shown) {
+  border-color: var(--color-gray-700);
+}
+.text-field.design-system .text-field__input:focus {
+  border-color: var(--color-primary-300);
+}
+.text-field.design-system .text-field__input:disabled {
+  background: var(--color-gray-white);
+  color: var(--color-gray-50);
+  border-color: var(--color-gray-50) !important;
+}
+.text-field.design-system .text-field__input:disabled::placeholder {
+  color: var(--color-gray-50);
+}
+.text-field.design-system.text-field--error .text-field__input {
+  border-color: var(--color-red-300);
+}
+.text-field.design-system.text-field--success01 .text-field__input {
+  border-color: var(--color-gray-700);
+}
+.text-field.design-system.text-field--success02 .text-field__input {
+  border-color: var(--color-gray-700);
+}
+
+/**
+@description button 컴포넌트 css
+
+@example button 기본
+<button class="button">버튼</button>
+
+@example button variant
+<button class="button button--variant-blue">버튼</button>
+<button class="button button--variant-blue button--border">버튼</button>
+
+@example button size
+<button class="button button--size-L">버튼</button>
+
+@example button stretch
+<button class="button button--stretch">버튼</button>
+ */
+.button.design-system {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  height: 44px;
+  padding: 0 20px;
+  border-radius: 8px;
+  font-size: var(--font-size-m);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-m-20);
+  color: var(--color-gray-white);
+  background: var(--color-primary-300);
+}
+@media (pointer: fine) {
+  .button.design-system:not(:disabled):hover {
+    background: var(--color-primary-400);
+  }
+}
+@media (pointer: coarse) {
+  .button.design-system:not(:disabled):active {
+    background: var(--color-primary-400);
+  }
+}
+.button.design-system.button--size-L {
+  height: 56px;
+  padding: 0 20px;
+  border-radius: 8px;
+  font-size: var(--font-size-l);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-l);
+}
+.button.design-system.button--size-M {
+  height: 44px;
+  padding: 0 20px;
+  border-radius: 8px;
+  font-size: var(--font-size-m);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-m-20);
+}
+.button.design-system.button--size-S {
+  height: 28px;
+  padding: 0 16px;
+  border-radius: 4px;
+  font-size: var(--font-size-s);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-s);
+}
+.button.design-system.button--size-Xs {
+  height: 24px;
+  padding: 0 12px;
+  border-radius: 4px;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-xs);
+}
+.button.design-system.button--stretch {
+  width: 100%;
+}
+.button.design-system.button--round {
+  border-radius: 56px;
+}
+.button.design-system.button--variant-blue {
+  color: var(--color-gray-white);
+  background: var(--color-primary-300);
+}
+@media (pointer: fine) {
+  .button.design-system.button--variant-blue:not(:disabled):hover {
+    background: var(--color-primary-400);
+  }
+}
+@media (pointer: coarse) {
+  .button.design-system.button--variant-blue:not(:disabled):active {
+    background: var(--color-primary-400);
+  }
+}
+.button.design-system.button--variant-black {
+  color: var(--color-gray-white);
+  background: var(--color-gray-700);
+}
+@media (pointer: fine) {
+  .button.design-system.button--variant-black:not(:disabled):hover {
+    background: var(--color-gray-600);
+  }
+}
+@media (pointer: coarse) {
+  .button.design-system.button--variant-black:not(:disabled):active {
+    background: var(--color-gray-600);
+  }
+}
+.button.design-system.button--variant-red {
+  color: var(--color-gray-white);
+  background: var(--color-red-300);
+}
+@media (pointer: fine) {
+  .button.design-system.button--variant-red:not(:disabled):hover {
+    background: var(--color-red-400);
+  }
+}
+@media (pointer: coarse) {
+  .button.design-system.button--variant-red:not(:disabled):active {
+    background: var(--color-red-400);
+  }
+}
+.button.design-system.button--border {
+  background: var(--color-gray-white);
+  color: var(--color-gray-gray-700);
+  border: 1px solid var(--color-gray-100);
+}
+@media (pointer: fine) {
+  .button.design-system.button--border:not(:disabled):hover {
+    background: var(--color-gray-white);
+  }
+}
+@media (pointer: coarse) {
+  .button.design-system.button--border:not(:disabled):active {
+    background: var(--color-gray-white);
+  }
+}
+.button.design-system.button--border.button--variant-blue {
+  color: var(--color-primary-300);
+  border: 1px solid var(--color-primary-300);
+}
+@media (pointer: fine) {
+  .button.design-system.button--border.button--variant-blue:not(:disabled):hover {
+    color: var(--color-primary-400);
+    border: 1px solid var(--color-primary-400);
+  }
+}
+@media (pointer: coarse) {
+  .button.design-system.button--border.button--variant-blue:not(:disabled):active {
+    color: var(--color-primary-400);
+    border: 1px solid var(--color-primary-400);
+  }
+}
+.button.design-system.button--border.button--variant-red {
+  color: var(--color-red-300);
+  border: 1px solid var(--color-red-300);
+}
+@media (pointer: fine) {
+  .button.design-system.button--border.button--variant-red:not(:disabled):hover {
+    color: var(--color-red-400);
+    border: 1px solid var(--color-red-400);
+  }
+}
+@media (pointer: coarse) {
+  .button.design-system.button--border.button--variant-red:not(:disabled):active {
+    color: var(--color-red-400);
+    border: 1px solid var(--color-red-400);
+  }
+}
+.button.design-system.button--border.button--variant-white {
+  color: var(--color-gray-700);
+  border: 1px solid var(--color-gray-100);
+}
+@media (pointer: fine) {
+  .button.design-system.button--border.button--variant-white:not(:disabled):hover {
+    border: 1px solid var(--color-gray-300);
+  }
+}
+@media (pointer: coarse) {
+  .button.design-system.button--border.button--variant-white:not(:disabled):active {
+    border: 1px solid var(--color-gray-300);
+  }
+}
+.button.design-system:disabled {
+  color: var(--color-gray-white);
+  background-color: var(--color-gray-50);
+}
+.button.design-system:disabled.button--border {
+  color: var(--color-gray-50) !important;
+  background: var(--color-gray-white) !important;
+  border-color: var(--color-gray-50) !important;
+}
