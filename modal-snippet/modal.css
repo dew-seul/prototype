@@ -425,7 +425,6 @@
     color: var(--gbzm-gray-500);
     text-align: right;
   }
-  .gbz-m-tpl-byte.is-over { color: var(--gbzm-red-300); font-weight: 500; }
 
   /* Toast */
   .gbz-m-toast {

@@ -52,7 +52,6 @@
     const bytes = estimatedByteLength(raw);
     const byteEl = tpl.querySelector('.gbz-m-tpl-byte');
     byteEl.textContent = '예상 ' + bytes + 'byte';
-    if (bytes > 90) byteEl.classList.add('is-over');
   });
 
   const toast = document.getElementById('gbzMtoast');

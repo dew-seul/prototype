@@ -6310,7 +6310,6 @@ b("signup_form_enter");a.indexOf("/register/roles")!==-1&&b("signup_roles_enter"
     color: var(--gbzm-gray-500);
     text-align: right;
   }
-  .gbz-m-tpl-byte.is-over { color: var(--gbzm-red-300); font-weight: 500; }
 
   /* Toast */
   .gbz-m-toast {
@@ -6664,7 +6663,6 @@ A/S는 시술 2주 이내 무료로 도와드려요 :)'>
     const bytes = estimatedByteLength(raw);
     const byteEl = tpl.querySelector('.gbz-m-tpl-byte');
     byteEl.textContent = '예상 ' + bytes + 'byte';
-    if (bytes > 90) byteEl.classList.add('is-over');
   });
 
   const toast = document.getElementById('gbzMtoast');
