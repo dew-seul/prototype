@@ -30,19 +30,28 @@
       return m;
     });
   }
-  function getByteLength(str) {
-    let b = 0;
-    for (const ch of str) b += ch.charCodeAt(0) > 127 ? 2 : 1;
-    return b;
+  /* 변수 예상 byte (발송 시 자동 치환되는 값 기준) */
+  const VAR_BYTES = { '고객이름': 6, '예약일시': 9, '시술이름': 32 };
+  function estimatedByteLength(raw) {
+    let rest = raw;
+    let total = 0;
+    for (const key in VAR_BYTES) {
+      const token = '[' + key + ']';
+      const count = rest.split(token).length - 1;
+      total += count * VAR_BYTES[key];
+      rest = rest.split(token).join('');
+    }
+    for (const ch of rest) total += ch.charCodeAt(0) > 127 ? 2 : 1;
+    return total;
   }
 
   const tpls = document.querySelectorAll('.gbz-m-tpl');
   tpls.forEach(function(tpl) {
     const raw = tpl.getAttribute('data-msg') || '';
     tpl.querySelector('.gbz-m-tpl-msg').innerHTML = highlightVars(raw);
-    const bytes = getByteLength(raw);
+    const bytes = estimatedByteLength(raw);
     const byteEl = tpl.querySelector('.gbz-m-tpl-byte');
-    byteEl.textContent = bytes + 'byte' + (bytes > 90 ? ' · 90byte 초과 시 LMS 발송' : '');
+    byteEl.textContent = '예상 ' + bytes + 'byte' + (bytes > 90 ? ' · 90byte 초과 시 LMS 발송' : '');
     if (bytes > 90) byteEl.classList.add('is-over');
   });
 

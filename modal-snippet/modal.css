@@ -215,8 +215,11 @@
     background: #FFFFFF;
     pointer-events: none;
   }
-  .gbz-m-chip-fade.is-hide { opacity: 0; pointer-events: none; }
-  .gbz-m-chip-fade.is-hide .gbz-m-chip-next { pointer-events: none; } /* 숨김 시 버튼도 클릭 차단 → 칩 클릭 가로채기 방지 */
+  .gbz-m-chip-fade.is-hide {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden; /* 전/후 fade 영역의 자식 버튼까지 확실히 이벤트 차단 */
+  }
 
   /* 좌측 미러 버전 */
   .gbz-m-chip-fade--left {
