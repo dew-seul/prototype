@@ -318,19 +318,18 @@
     border-color: transparent;
   }
 
-  /* Badge R 28px */
-  /* Badge S (24px) — padding 3/5, radius box.xs, sub-title.s */
+  /* Badge XS (20px) — padding 2/4, radius box.xs, sub-title.xs */
   .gbz-m-badge {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 2px;
-    padding: 3px 5px;
+    padding: 2px 4px;
     border-radius: var(--gbzm-r-xs);
     font-family: var(--gbzm-ff);
     font-weight: var(--gbzm-fw-sub);
-    font-size: var(--gbzm-fs-s);
-    line-height: var(--gbzm-lh-s);
+    font-size: var(--gbzm-fs-xs);
+    line-height: var(--gbzm-lh-xs);
     letter-spacing: 0;
     white-space: nowrap;
   }
