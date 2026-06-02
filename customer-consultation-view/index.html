@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>고객 상세 차트</title>
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet" />
+  <style>
+    :root {
+      --p300: #227EFF; --p100: #ECF3FF;
+      --red300: #FF4D4F; --red-bg: #FFF1F0;
+      --g0:  #FFFFFF; --g100: #DFE0E1;
+      --g200: #C8CACC; --g300: #9FA1A4;
+      --g400: #808186; --g500: #606268; --g700: #20232B;
+      --bg100: #FAFAFA; --bg200: #F2F4F6;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Pretendard',-apple-system,sans-serif;font-size:14px;
+      color:var(--g700);-webkit-font-smoothing:antialiased;background:var(--bg200)}
+
+    /* ────── LEFT PANEL ────── */
+    .lp{position:fixed;left:0;top:0;width:320px;height:100vh;
+      background:var(--g0);border-right:1px solid var(--g100);
+      display:flex;flex-direction:column;z-index:100}
+    .lp-scroll{flex:1;overflow-y:auto;display:flex;flex-direction:column;
+      padding-top:40px;position:relative}
+    .lp-scroll::-webkit-scrollbar{display:none}
+
+    /* profile-edit btn */
+    .btn-edit{position:absolute;top:12px;right:12px;height:28px;padding:5px 16px;
+      border:1px solid var(--g100);background:var(--g0);border-radius:6px;
+      font-size:12px;font-weight:500;color:var(--g700);cursor:pointer;font-family:inherit}
+
+    /* consultation badge */
+    .c-badge{display:none;align-items:center;gap:5px;background:var(--p100);
+      color:var(--p300);font-size:11px;font-weight:600;padding:3px 9px;
+      border-radius:100px;position:absolute;top:14px;left:12px}
+    .dot{width:6px;height:6px;border-radius:50%;background:var(--p300)}
+
+    /* toggle */
+    .vt{display:flex;gap:2px;background:var(--bg200);border-radius:8px;
+      padding:3px;margin:0 12px}
+    .vtb{flex:1;height:30px;border:none;border-radius:6px;background:transparent;
+      cursor:pointer;font-family:inherit;font-size:12px;font-weight:500;color:var(--g400)}
+    .vtb.on{background:var(--g0);color:var(--g700);box-shadow:0 1px 4px rgba(0,0,0,.10)}
+
+    /* profile */
+    .lc{padding:20px 28px}
+    .pcard{display:flex;align-items:center;gap:16px}
+    .av{width:64px;height:64px;border-radius:50%;background:#EAECEF;flex-shrink:0;
+      position:relative;display:flex;align-items:center;justify-content:center}
+    .av-edit{position:absolute;bottom:-4px;right:-4px;width:24px;height:24px;
+      background:var(--g0);border:1px solid var(--g100);border-radius:50%;
+      display:flex;align-items:center;justify-content:center}
+    .pname{font-size:20px;font-weight:700;line-height:32px;color:var(--g700)}
+    .pphone{font-size:14px;font-weight:500;color:var(--g500);line-height:20px;text-decoration:underline}
+
+    /* info rows */
+    .info{display:flex;flex-direction:column;gap:4px;margin-top:24px}
+    .ir{display:flex;align-items:center;gap:16px;min-height:24px}
+    .ir.top{align-items:flex-start}
+    .lbl{font-size:12px;font-weight:500;color:var(--g400);width:72px;flex-shrink:0;line-height:18px}
+    .val{font-size:14px;color:var(--g700);line-height:24px;flex:1;min-width:0;
+      overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .val.e{color:var(--g300)}
+    .bl-chk{width:20px;height:20px;border-radius:4px;background:var(--g300);
+      display:flex;align-items:center;justify-content:center}
+    .div{height:1px;background:var(--g100);margin:20px 0}
+
+    /* stats */
+    .stats{display:flex;flex-direction:column;gap:8px}
+    .sr{display:flex;align-items:center;gap:16px}
+    .sl{font-size:12px;font-weight:500;color:var(--g400);width:72px;flex-shrink:0;white-space:nowrap}
+    .sv{font-size:14px;color:var(--g700);white-space:nowrap}
+    .srow{display:flex;align-items:center;justify-content:space-between;flex:1;min-width:0}
+    .cbtn{height:24px;padding:0 12px;border:1px solid var(--g100);background:var(--g0);
+      border-radius:100px;font-size:11px;font-weight:500;color:var(--g700);
+      cursor:pointer;font-family:inherit}
+
+    /* footer */
+    .lf{background:var(--g0);padding:20px 28px;border-top:1px solid var(--g100);
+      display:flex;gap:8px;flex-shrink:0}
+    .bi{width:44px;height:44px;border:1px solid var(--g100);background:var(--g0);
+      border-radius:10px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+    .ba{flex:1;height:44px;border:none;border-radius:10px;font-size:14px;font-weight:500;
+      font-family:inherit;cursor:pointer}
+    .bd{background:var(--g700);color:#fff}
+    .bp{background:var(--p300);color:#fff}
+
+    /* ────── RIGHT PANEL ────── */
+    .rp{margin-left:320px;min-height:100vh;background:var(--bg200)}
+
+    /* tab bar */
+    .tabs{display:flex;align-items:flex-end;border-bottom:1px solid var(--g100);
+      padding:24px 32px 0;background:var(--bg200);position:sticky;top:0;z-index:10}
+    .tab{padding:0 10px 12px;cursor:pointer;font-size:14px;color:var(--g400);
+      border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap}
+    .tab.on{color:var(--g700);border-bottom-color:var(--g700);font-weight:700}
+
+    /* tab content */
+    .tc{display:none;padding:32px 32px 60px}
+    .tc.on{display:block}
+
+    /* section */
+    .sh{display:flex;align-items:baseline;gap:8px;margin-bottom:16px}
+    .st{font-size:16px;font-weight:700;color:var(--g700)}
+    .sm{font-size:12px;color:var(--g400)}
+    .sv2{font-size:16px;font-weight:700;color:var(--p300)}
+    .sh-right{display:flex;align-items:center;justify-content:space-between;width:100%;margin-bottom:16px}
+
+    /* dashboard cards — sale (5개, no gap, border-separated) */
+    .dc5{display:flex;background:var(--g0);border:1px solid var(--g100);
+      border-radius:8px;overflow:hidden;margin-bottom:40px}
+    .dc5-item{flex:1;padding:20px;border-right:1px solid var(--g100)}
+    .dc5-item:last-child{border-right:none}
+    .dc-sub{font-size:12px;font-weight:500;color:var(--g400);margin-bottom:4px}
+    .dc-val{font-size:16px;font-weight:700;color:var(--g700)}
+
+    /* dashboard cards — book (4개, gap 12px) */
+    .dc4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:32px}
+    .dc4-item{background:var(--g0);border:1px solid var(--g100);border-radius:8px;padding:20px}
+    .dc4-lbl{font-size:12px;font-weight:500;color:var(--g400);margin-bottom:4px}
+    .dc4-val{font-size:24px;font-weight:700;color:var(--g700)}
+    .c-p{color:var(--p300)}.c-r{color:var(--red300)}.c-g4{color:var(--g400)}
+
+    /* holding area */
+    .hold{background:var(--g0);border:1px solid var(--g100);border-radius:8px;
+      padding:20px 24px;margin-bottom:20px}
+    .hold-hd{display:flex;align-items:flex-end;justify-content:space-between}
+    .hold-sub{font-size:12px;font-weight:500;color:var(--g400);margin-bottom:4px}
+    .hold-amt{font-size:28px;font-weight:700;color:var(--g700)}
+    .ob{height:32px;padding:0 14px;border:1px solid var(--g100);background:var(--g0);
+      border-radius:6px;font-size:12px;font-weight:500;color:var(--g700);cursor:pointer;font-family:inherit}
+    .pb{height:32px;padding:0 14px;border:none;background:var(--p300);
+      border-radius:6px;font-size:12px;font-weight:500;color:#fff;cursor:pointer;font-family:inherit}
+
+    /* member cards */
+    .ms{display:flex;gap:12px;overflow-x:auto;padding-bottom:4px;margin-bottom:28px}
+    .ms::-webkit-scrollbar{height:4px}
+    .ms::-webkit-scrollbar-thumb{background:var(--g100);border-radius:2px}
+    .mc{background:var(--g0);border:1px solid var(--g100);border-radius:8px;
+      padding:16px;min-width:160px;flex-shrink:0}
+    .mc-name{font-size:14px;font-weight:700;color:var(--g700);margin-bottom:4px}
+    .mc-meta{font-size:12px;color:var(--g400);line-height:18px}
+    .mc-amt{font-size:13px;color:var(--p300);font-weight:700;margin-top:6px}
+    .mc-btn{margin-top:10px}
+
+    /* ticket cards */
+    .tklist{display:flex;flex-direction:column;gap:8px;margin-bottom:28px}
+    .tkcard{background:var(--g0);border:1px solid var(--g100);border-radius:8px;
+      padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+    .tkinfo{display:flex;flex-direction:column;gap:3px}
+    .tkname{font-size:14px;font-weight:700;color:var(--g700)}
+    .tkmeta{font-size:12px;color:var(--g400);display:flex;gap:12px}
+    .tkcount{font-size:20px;font-weight:700;color:var(--g700)}
+    .expiry-r{color:var(--red300)}
+
+    /* ────── TABLE ────── */
+    .tbl-wrap{border-radius:8px;overflow:hidden;border:1px solid var(--g100)}
+    .tbl{width:100%;background:var(--g0);border-collapse:separate;
+      border-spacing:0;table-layout:fixed}
+    .tbl th{height:44px;padding:0 16px;font-size:14px;font-weight:500;color:var(--g700);
+      background:var(--bg200);border-bottom:1px solid var(--g100);
+      text-align:left;white-space:nowrap;overflow:hidden}
+    .tbl td{height:46px;padding:0 16px;font-size:13px;color:var(--g700);
+      background:var(--bg100);border-bottom:1px solid var(--g100);
+      white-space:nowrap;overflow:hidden;text-overflow:ellipsis;vertical-align:middle}
+    .tbl tbody tr:last-child td{border-bottom:none}
+    .tbl tbody tr:hover td{background:#F5F5F6}
+    .r{text-align:right!important}
+    .tdic{display:flex;align-items:center;height:46px;padding:0 16px}
+    .ic{width:24px;height:24px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--g400)}
+    .plus{color:var(--p300);font-weight:500}
+    .minus{color:var(--red300);font-weight:500}
+    .zero{color:var(--g300)}
+    .badge{display:inline-flex;align-items:center;height:20px;padding:0 8px;
+      border-radius:100px;font-size:11px;font-weight:600;white-space:nowrap}
+    .b-p{background:var(--p100);color:var(--p300)}
+    .b-r{background:var(--red-bg);color:var(--red300)}
+    .b-g{background:var(--bg200);color:var(--g500)}
+    .b-gr{background:#F0FFF4;color:#22C55E}
+
+    /* pagination */
+    .pag{display:flex;align-items:center;justify-content:center;gap:4px;margin-top:16px}
+    .pg{width:28px;height:28px;border:none;background:transparent;border-radius:4px;
+      font-size:12px;color:var(--g400);cursor:pointer;display:flex;align-items:center;
+      justify-content:center;font-family:inherit}
+    .pg.on{background:var(--g700);color:#fff}
+
+    /* consultation mode */
+    body.c .hc{display:none!important}
+    body:not(.c) .sc{display:none!important}
+    body.c .c-badge{display:flex}
+    body.c #t-sale col.col-memo{width:0!important}
+    body.c #t-sale .col-memo{padding:0!important;overflow:hidden;max-width:0;white-space:nowrap}
+    body.c #t-book col.col-memo{width:0!important}
+    body.c #t-book .col-memo{padding:0!important;overflow:hidden;max-width:0;white-space:nowrap}
+
+    /* icon helper */
+    svg{display:block}
+  </style>
+</head>
+<body>
+
+<!-- ── LEFT PANEL ── -->
+<aside class="lp">
+  <div class="lp-scroll">
+    <div class="c-badge"><span class="dot"></span>상담용</div>
+    <button class="btn-edit">프로필 수정</button>
+
+    <div class="vt" style="margin-top:12px;">
+      <button class="vtb on" id="vn" onclick="sv('n')">관리자용</button>
+      <button class="vtb" id="vc" onclick="sv('c')">상담용</button>
+    </div>
+
+    <div class="lc">
+      <div class="pcard">
+        <div class="av">
+          <svg width="36" height="36" fill="none" viewBox="0 0 36 36"><circle cx="18" cy="14" r="7" fill="#C2C7CC"/><ellipse cx="18" cy="30" rx="13" ry="8" fill="#C2C7CC"/></svg>
+          <div class="av-edit"><svg width="12" height="12" fill="none" viewBox="0 0 16 16"><path d="M11.5 2.5l2 2L5 13H3v-2L11.5 2.5z" stroke="#606268" stroke-width="1.4" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div style="min-width:0;flex:1">
+          <div class="pname">고객명</div>
+          <div class="pphone">010-4238-4185</div>
+        </div>
+      </div>
+
+      <div class="info">
+        <div class="ir"><span class="lbl">담당자</span><span class="val e">담당자 없음</span></div>
+        <div class="ir"><span class="lbl">고객 번호</span><span class="val">123841</span></div>
+        <div class="ir hc"><span class="lbl">닉네임</span><span class="val e">미입력</span></div>
+        <div class="ir hc"><span class="lbl">생년월일</span><span class="val">1994.9.16</span></div>
+        <div class="ir hc"><span class="lbl">직업</span><span class="val e">미입력</span></div>
+        <div class="ir hc"><span class="lbl">그룹</span><span class="val e">미분류</span></div>
+        <div class="ir hc"><span class="lbl">블랙리스트</span>
+          <div class="bl-chk"><svg width="10" height="8" fill="none" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="ir top hc"><span class="lbl" style="margin-top:3px">고객 메모</span><span class="val e">미입력</span></div>
+      </div>
+
+      <div class="div"></div>
+
+      <div class="stats">
+        <div class="sr"><span class="sl">최근 방문일</span><span class="sv">3일 전(25.3.25)</span></div>
+        <div class="sr"><span class="sl">최근 받은 시술</span><span class="sv" style="font-size:13px;overflow:hidden;text-overflow:ellipsis;max-width:130px">그룹명&gt;시술명</span></div>
+        <div class="sr hc"><span class="sl">실 매출</span><span class="sv">1,300,000원</span></div>
+        <div class="sr">
+          <span class="sl">정액권</span>
+          <div class="srow"><span class="sv">1,099,996,871원</span><button class="cbtn">충전</button></div>
+        </div>
+        <div class="sr">
+          <span class="sl">티켓</span>
+          <div class="srow"><span class="sv">3회</span><button class="cbtn">충전</button></div>
+        </div>
+        <div class="sr" style="cursor:pointer">
+          <span class="sl">포인트</span>
+          <div style="display:flex;align-items:center;gap:4px">
+            <span class="sv">3,000P</span>
+            <svg width="20" height="20" fill="none" viewBox="0 0 20 20"><path d="M7 4l6 6-6 6" stroke="var(--g300)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lf">
+    <button class="bi"><svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M4 4h16v12H6l-4 3V4z" stroke="var(--g500)" stroke-width="1.6" stroke-linejoin="round"/></svg></button>
+    <button class="ba bd">매출 등록</button>
+    <button class="ba bp">예약 등록</button>
+  </div>
+</aside>
+
+<!-- ── RIGHT PANEL ── -->
+<main class="rp">
+  <div class="tabs">
+    <div class="tab on" data-t="sale">매출</div>
+    <div class="tab" data-t="proc">시술</div>
+    <div class="tab" data-t="prod">제품</div>
+    <div class="tab" data-t="book">예약</div>
+    <div class="tab" data-t="mbr">정액권</div>
+    <div class="tab" data-t="tkt">티켓</div>
+    <div class="tab" data-t="pt">포인트</div>
+    <div class="tab" data-t="fam">패밀리</div>
+  </div>
+
+  <!-- ──────── 매출 ──────── -->
+  <div class="tc on" id="t-sale">
+    <div class="sh hc">
+      <span class="st">실 매출 합계</span>
+    </div>
+    <div class="dc5 hc">
+      <div class="dc5-item"><div class="dc-sub">시술</div><div class="dc-val">35,000원</div></div>
+      <div class="dc5-item"><div class="dc-sub">제품</div><div class="dc-val">135,000원</div></div>
+      <div class="dc5-item"><div class="dc-sub">정액권 판매</div><div class="dc-val">130,000원</div></div>
+      <div class="dc5-item"><div class="dc-sub">티켓 판매</div><div class="dc-val">130,000원</div></div>
+      <div class="dc5-item"><div class="dc-sub">예약 위약금</div><div class="dc-val">130,000원</div></div>
+    </div>
+    <div style="font-size:16px;font-weight:700;color:var(--g700);margin-bottom:12px">매출 내역</div>
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <colgroup><col style="width:9%"/><col style="width:24%"/><col style="width:8%"/><col class="col-memo" style="width:15%"/><col style="width:10%"/><col style="width:14%"/><col style="width:6%"/><col style="width:6%"/><col style="width:6%"/></colgroup>
+        <thead><tr><th>날짜</th><th>상품명</th><th>담당자</th><th class="col-memo">매출 메모</th><th>실 매출</th><th>결제 수단</th><th class="r">영수증</th><th class="r">사진</th><th class="r">수정</th></tr></thead>
+        <tbody>
+          <tr><td>23.5.13(월)</td><td>그룹명&gt;시술명, 그룹명&gt;시술명, 그룹명</td><td>담당자 없음</td><td class="col-memo">타샵 제거 있음</td><td>30,000원</td><td>현금 30,000 / 계좌이체</td>
+            <td><div class="tdic"><span class="ic"><svg width="16" height="16" fill="none" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M8 9h8M8 13h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span></div></td>
+            <td><div class="tdic"><span class="ic"><svg width="16" height="16" fill="none" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="8.5" cy="8.5" r="1.5" fill="currentColor"/><path d="M3 16l5-5 4 4 3-3 5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span></div></td>
+            <td><div class="tdic"><span class="ic"><svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M11 4H4a1 1 0 00-1 1v14a1 1 0 001 1h14a1 1 0 001-1v-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M18.5 2.5l3 3L13 14h-3v-3z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></td>
+          </tr>
+          <tr><td>23.5.13(월)</td><td>그룹명&gt;시술명</td><td>원장님</td><td class="col-memo">타샵 제거 있음</td><td>30,000원</td><td>네이버페이 100,000원</td>
+            <td><div class="tdic"><span class="ic"><svg width="16" height="16" fill="none" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M8 9h8M8 13h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span></div></td>
+            <td><div class="tdic"><span class="ic"><svg width="16" height="16" fill="none" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="8.5" cy="8.5" r="1.5" fill="currentColor"/><path d="M3 16l5-5 4 4 3-3 5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span></div></td>
+            <td><div class="tdic"><span class="ic"><svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M11 4H4a1 1 0 00-1 1v14a1 1 0 001 1h14a1 1 0 001-1v-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M18.5 2.5l3 3L13 14h-3v-3z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></td>
+          </tr>
+          <tr><td>23.5.13(월)</td><td>그룹명&gt;시술명, 그룹명&gt;시술명</td><td>원장님</td><td class="col-memo"></td><td>30,000원</td><td>카드 30,000원</td>
+            <td><div class="tdic"><span class="ic"><svg width="16" height="16" fill="none" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M8 9h8M8 13h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span></div></td>
+            <td><div class="tdic"><span class="ic"><svg width="16" height="16" fill="none" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="8.5" cy="8.5" r="1.5" fill="currentColor"/><path d="M3 16l5-5 4 4 3-3 5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span></div></td>
+            <td><div class="tdic"><span class="ic"><svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M11 4H4a1 1 0 00-1 1v14a1 1 0 001 1h14a1 1 0 001-1v-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M18.5 2.5l3 3L13 14h-3v-3z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></td>
+          </tr>
+          <tr><td>23.4.28(금)</td><td>그룹명&gt;시술명</td><td>박소영</td><td class="col-memo">두피 민감</td><td>150,000원</td><td>카드 150,000원</td>
+            <td><div class="tdic"><span class="ic"><svg width="16" height="16" fill="none" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M8 9h8M8 13h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span></div></td>
+            <td><div class="tdic"><span class="ic"><svg width="16" height="16" fill="none" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="8.5" cy="8.5" r="1.5" fill="currentColor"/><path d="M3 16l5-5 4 4 3-3 5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span></div></td>
+            <td><div class="tdic"><span class="ic"><svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M11 4H4a1 1 0 00-1 1v14a1 1 0 001 1h14a1 1 0 001-1v-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M18.5 2.5l3 3L13 14h-3v-3z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="pag"><button class="pg on">1</button><button class="pg">2</button><button class="pg">3</button><button class="pg">4</button><button class="pg">5</button><button class="pg">›</button></div>
+  </div>
+
+  <!-- ──────── 시술 ──────── -->
+  <div class="tc" id="t-proc">
+    <div style="font-size:16px;font-weight:700;color:var(--g700);margin-bottom:12px">시술 내역</div>
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <colgroup><col style="width:10%"/><col style="width:44%"/><col style="width:12%"/><col style="width:17%"/><col style="width:17%"/></colgroup>
+        <thead><tr><th>날짜</th><th>시술명</th><th>담당자</th><th>할인 금액</th><th>총 금액</th></tr></thead>
+        <tbody>
+          <tr><td>23.5.13(월)</td><td>그룹명 &gt; 시술명, 그룹명 &gt; 시술명, 그룹명 &gt; 시술명</td><td>담당자 없음</td><td class="zero">-</td><td>30,000원</td></tr>
+          <tr><td>23.5.13(월)</td><td>그룹명 &gt; 시술명</td><td>원장님</td><td class="minus">-3,000원</td><td>30,000원</td></tr>
+          <tr><td>23.5.13(월)</td><td>그룹명 &gt; 시술명, 그룹명 &gt; 시술명</td><td>원장님</td><td class="zero">-</td><td>130,000원</td></tr>
+          <tr><td>23.5.13(월)</td><td>그룹명 &gt; 시술명</td><td>담당자 없음</td><td class="minus">-3,000원</td><td>30,000원</td></tr>
+          <tr><td>23.5.13(월)</td><td>그룹명 &gt; 시술명, 그룹명 &gt; 시술명, 그룹명 &gt; 시술명, 그룹명 &gt; 시술명</td><td>원장님</td><td class="zero">-</td><td>130,000원</td></tr>
+          <tr><td>23.5.13(월)</td><td>그룹명 &gt; 시술명</td><td>담당자 없음</td><td class="minus">-3,000원</td><td>30,000원</td></tr>
+          <tr><td>23.4.28(금)</td><td>그룹명 &gt; 시술명, 그룹명 &gt; 시술명</td><td>박소영</td><td class="zero">-</td><td>130,000원</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="pag"><button class="pg on">1</button><button class="pg">2</button><button class="pg">3</button><button class="pg">4</button><button class="pg">5</button><button class="pg">›</button></div>
+  </div>
+
+  <!-- ──────── 제품 ──────── -->
+  <div class="tc" id="t-prod">
+    <div style="font-size:16px;font-weight:700;color:var(--g700);margin-bottom:12px">제품 판매 내역</div>
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <colgroup><col style="width:9%"/><col style="width:40%"/><col style="width:6%"/><col style="width:11%"/><col style="width:17%"/><col style="width:17%"/></colgroup>
+        <thead><tr><th>날짜</th><th>제품명</th><th>개수</th><th>담당자</th><th>할인 금액</th><th>총 금액</th></tr></thead>
+        <tbody>
+          <tr><td>23.5.13(월)</td><td>그룹명 &gt; 제품명, 그룹명 &gt; 제품명, 그룹명 &gt; 제품명...</td><td>1</td><td>담당자 없음</td><td class="minus">-3,000원</td><td>30,000원</td></tr>
+          <tr><td>23.5.13(월)</td><td>그룹명 &gt; 제품명</td><td>3</td><td>담당자 없음</td><td class="zero">-</td><td>130,000원</td></tr>
+          <tr><td>23.5.13(월)</td><td>그룹명 &gt; 제품명</td><td>1</td><td>담당자 없음</td><td class="minus">-3,000원</td><td>30,000원</td></tr>
+          <tr><td>23.5.13(월)</td><td>그룹명 &gt; 제품명</td><td>3</td><td>담당자 없음</td><td class="zero">-</td><td>130,000원</td></tr>
+          <tr><td>23.5.13(월)</td><td>그룹명 &gt; 제품명</td><td>1</td><td>박소영</td><td class="minus">-3,000원</td><td>30,000원</td></tr>
+          <tr><td>23.5.13(월)</td><td>그룹명 &gt; 제품명</td><td>3</td><td>담당자 없음</td><td class="zero">-</td><td>130,000원</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="pag"><button class="pg on">1</button><button class="pg">2</button><button class="pg">3</button><button class="pg">4</button><button class="pg">5</button><button class="pg">›</button></div>
+  </div>
+
+  <!-- ──────── 예약 ──────── -->
+  <div class="tc" id="t-book">
+    <div class="dc4">
+      <div class="dc4-item"><div class="dc4-lbl">예약</div><div class="dc4-val c-p">8건</div></div>
+      <div class="dc4-item"><div class="dc4-lbl">노쇼</div><div class="dc4-val c-r">1건</div></div>
+      <div class="dc4-item"><div class="dc4-lbl">예약 취소</div><div class="dc4-val c-g4">2건</div></div>
+      <div class="dc4-item"><div class="dc4-lbl">매출 등록</div><div class="dc4-val">5건</div></div>
+    </div>
+    <div style="font-size:16px;font-weight:700;color:var(--g700);margin-bottom:12px">예약 내역</div>
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <colgroup><col style="width:13%"/><col style="width:7%"/><col style="width:18%"/><col style="width:8%"/><col style="width:8%"/><col class="col-memo" style="width:12%"/><col style="width:10%"/><col style="width:14%"/><col style="width:6%"/></colgroup>
+        <thead><tr><th>예약 일시</th><th>상태</th><th>시술명</th><th>담당자</th><th>예약금</th><th class="col-memo">예약 메모</th><th>예약 경로</th><th>예약 등록 날짜</th><th class="r">상세</th></tr></thead>
+        <tbody>
+          <tr><td>23.5.16(화) 오전 11:00</td><td><span class="badge b-p">예약됨</span></td><td>그룹명&gt;시술명, 그룹명&gt;시술명</td><td>박소영</td><td class="zero">-</td><td class="col-memo">타갸 제거 있음</td><td>공비서 원장님</td><td>23.5.13(월)</td><td><div class="tdic" style="justify-content:flex-end"><span class="ic"><svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></td></tr>
+          <tr><td>23.5.16(화) 오후 2:00</td><td><span class="badge b-gr">완료</span></td><td>그룹명&gt;시술명</td><td>원장님</td><td>10,000원</td><td class="col-memo"></td><td>공비서</td><td>23.5.13(월)</td><td><div class="tdic" style="justify-content:flex-end"><span class="ic"><svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></td></tr>
+          <tr><td>23.4.28(금) 오전 10:30</td><td><span class="badge b-r">취소</span></td><td>그룹명&gt;시술명, 그룹명&gt;시술명</td><td>담당자</td><td class="zero">-</td><td class="col-memo"></td><td>네이버 예약</td><td>23.4.25(화)</td><td><div class="tdic" style="justify-content:flex-end"><span class="ic"><svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></td></tr>
+          <tr><td>23.4.10(월) 오후 1:00</td><td><span class="badge b-r">노쇼</span></td><td>그룹명&gt;시술명</td><td>원장님</td><td class="zero">-</td><td class="col-memo"></td><td>공비서 원장님</td><td>23.4.08(토)</td><td><div class="tdic" style="justify-content:flex-end"><span class="ic"><svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="pag"><button class="pg on">1</button><button class="pg">2</button><button class="pg">3</button><button class="pg">4</button><button class="pg">5</button><button class="pg">›</button></div>
+  </div>
+
+  <!-- ──────── 정액권 ──────── -->
+  <div class="tc" id="t-mbr">
+    <div class="hold">
+      <div class="hold-hd">
+        <div><div class="hold-sub">보유 정액권</div><div class="hold-amt">350,000원</div></div>
+        <div style="display:flex;gap:8px">
+          <button class="ob">금액/기간 변경</button>
+          <button class="pb">정액권 충전</button>
+        </div>
+      </div>
+    </div>
+    <div style="font-size:14px;font-weight:700;color:var(--g700);margin:0 0 12px">충전/사용 내역</div>
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <colgroup><col style="width:10%"/><col style="width:55%"/><col style="width:17%"/><col style="width:18%"/></colgroup>
+        <thead><tr><th>날짜</th><th>내역</th><th>증감</th><th>잔여 금액</th></tr></thead>
+        <tbody>
+          <tr><td>23.5.13(월)</td><td>정액권 충전</td><td class="plus">+30,000원</td><td>350,000원</td></tr>
+          <tr><td>23.5.13(월)</td><td>패스 프로그램+40분 패스 결제</td><td class="minus">-10,000원</td><td>320,000원</td></tr>
+          <tr><td>23.5.13(월)</td><td>정액권 충전</td><td class="zero">+0원</td><td>320,000원</td></tr>
+          <tr><td>23.5.13(월)</td><td>패스 프로그램+40분 패스 결제</td><td class="minus">-10,000원</td><td>310,000원</td></tr>
+          <tr><td>23.5.13(월)</td><td>정액권 충전</td><td class="plus">+30,000원</td><td>340,000원</td></tr>
+          <tr><td>23.5.13(월)</td><td>연장+클레이닌연, 연장+영양영양 결제</td><td class="minus">-10,000원</td><td>330,000원</td></tr>
+          <tr><td>23.5.13(월)</td><td>정액권 충전</td><td class="plus">+30,000원</td><td>360,000원</td></tr>
+          <tr><td>23.5.13(월)</td><td>발급공당 결제</td><td class="minus">-10,000원</td><td>350,000원</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="pag"><button class="pg on">1</button><button class="pg">2</button><button class="pg">3</button><button class="pg">4</button><button class="pg">5</button><button class="pg">›</button></div>
+  </div>
+
+  <!-- ──────── 티켓 ──────── -->
+  <div class="tc" id="t-tkt">
+    <div class="sh-right">
+      <span class="st">보유 티켓</span>
+      <button class="pb">티켓 충전</button>
+    </div>
+    <div class="tbl-wrap" style="margin-bottom:32px">
+      <table class="tbl">
+        <colgroup><col style="width:40%"/><col style="width:17%"/><col style="width:25%"/><col style="width:18%"/></colgroup>
+        <thead><tr><th>티켓명</th><th>잔여 횟수</th><th>유효기간</th><th class="r">횟수/기간 변경</th></tr></thead>
+        <tbody>
+          <tr><td>(티켓 이름)</td><td>3회</td><td class="expiry-r">유효기간 만료</td><td><div class="tdic" style="justify-content:flex-end"><button class="ob" style="height:26px;font-size:11px">변경</button></div></td></tr>
+          <tr><td>(티켓 이름)</td><td>3회</td><td>23.5.16(화)</td><td><div class="tdic" style="justify-content:flex-end"><button class="ob" style="height:26px;font-size:11px">변경</button></div></td></tr>
+          <tr><td>(티켓 이름)</td><td>3회</td><td>23.5.16(화)</td><td><div class="tdic" style="justify-content:flex-end"><button class="ob" style="height:26px;font-size:11px">변경</button></div></td></tr>
+          <tr><td>(티켓 이름)</td><td>3회</td><td>23.5.16(화)</td><td><div class="tdic" style="justify-content:flex-end"><button class="ob" style="height:26px;font-size:11px">변경</button></div></td></tr>
+          <tr><td>(티켓 이름)</td><td>3회</td><td>23.5.16(화)</td><td><div class="tdic" style="justify-content:flex-end"><button class="ob" style="height:26px;font-size:11px">변경</button></div></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="font-size:16px;font-weight:700;color:var(--g700);margin-bottom:12px">충전/사용 내역</div>
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <colgroup><col style="width:10%"/><col style="width:55%"/><col style="width:17%"/><col style="width:18%"/></colgroup>
+        <thead><tr><th>날짜</th><th>내역</th><th>증감</th><th>잔여 횟수</th></tr></thead>
+        <tbody>
+          <tr><td>23.5.13(월)</td><td>(티켓명) 충전</td><td class="plus">+10회</td><td>10회</td></tr>
+          <tr><td>23.5.13(월)</td><td>(티켓명) 충전</td><td class="minus">-1회</td><td>10회</td></tr>
+          <tr><td>23.5.13(월)</td><td>(원장님이 입력한 내역)</td><td class="zero">+0회</td><td>10회</td></tr>
+          <tr><td>23.5.13(월)</td><td>(원장님이 입력한 내역)</td><td class="zero">+0회</td><td>10회</td></tr>
+          <tr><td>23.5.13(월)</td><td>(티켓명) 매출 수정으로 인한 결제 취소</td><td class="minus">-1회</td><td>10회</td></tr>
+          <tr><td>23.5.13(월)</td><td>패밀리 환불</td><td class="plus">+10회</td><td>10회</td></tr>
+          <tr><td>23.5.13(월)</td><td>(티켓명) 매출 수정으로 인한 결제 취소</td><td class="minus">-1회</td><td>10회</td></tr>
+          <tr><td>23.5.13(월)</td><td>(원장님이 입력한 내역)</td><td class="zero">+0회</td><td>10회</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="pag"><button class="pg on">1</button><button class="pg">2</button><button class="pg">3</button><button class="pg">4</button><button class="pg">5</button><button class="pg">›</button></div>
+  </div>
+
+  <!-- ──────── 포인트 ──────── -->
+  <div class="tc" id="t-pt">
+    <div class="hold" style="margin-bottom:32px">
+      <div class="hold-hd">
+        <div><div class="hold-sub">보유 포인트</div><div class="hold-amt">135,000P</div></div>
+        <button class="pb">포인트 적립/수정</button>
+      </div>
+    </div>
+    <div style="font-size:16px;font-weight:700;color:var(--g700);margin-bottom:12px">적립/사용 내역</div>
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <colgroup><col style="width:10%"/><col style="width:55%"/><col style="width:17%"/><col style="width:18%"/></colgroup>
+        <thead><tr><th>날짜</th><th>내역</th><th>증감</th><th>잔여 포인트</th></tr></thead>
+        <tbody>
+          <tr><td>23.5.13(월)</td><td>그룹명 &gt; 시술명 매출 적립</td><td class="plus">+1,000P</td><td>999,999,999P</td></tr>
+          <tr><td>23.5.13(월)</td><td>그룹명 &gt; 시술명 포인트 결제</td><td class="minus">-1,000P</td><td>135,000P</td></tr>
+          <tr><td>23.5.13(월)</td><td>신규 이벤트 포인트 제공</td><td class="plus">+1,000P</td><td>135,000P</td></tr>
+          <tr><td>23.5.13(월)</td><td>그룹명 &gt; 시술명 적립 취소</td><td class="minus">-1,000P</td><td>135,000P</td></tr>
+          <tr><td>23.5.13(월)</td><td>신규 이벤트 포인트 제공</td><td class="plus">+1,000P</td><td>135,000P</td></tr>
+          <tr><td>23.5.13(월)</td><td>그룹명 &gt; 시술명 포인트 결제</td><td class="minus">-1,000P</td><td>135,000P</td></tr>
+          <tr><td>23.5.13(월)</td><td>그룹명 &gt; 시술명, 그룹명 &gt; 시술명 적립 취소</td><td class="minus">-1,000P</td><td>135,000P</td></tr>
+          <tr><td>23.5.13(월)</td><td>신규 이벤트 포인트 제공</td><td class="plus">+1,000P</td><td>135,000P</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="pag"><button class="pg on">1</button><button class="pg">2</button><button class="pg">3</button><button class="pg">4</button><button class="pg">5</button><button class="pg">›</button></div>
+  </div>
+
+  <!-- ──────── 패밀리 ──────── -->
+  <div class="tc" id="t-fam">
+    <div class="hold" style="margin-bottom:20px">
+      <div class="hold-hd">
+        <div><div class="hold-sub">패밀리 정액권 합계</div><div class="hold-amt">350,000원</div></div>
+        <button class="ob">금액/기간 변경</button>
+      </div>
+    </div>
+    <div style="font-size:14px;font-weight:700;color:var(--g700);margin-bottom:12px">멤버</div>
+    <div class="ms">
+      <div class="mc">
+        <div class="mc-name">이술</div>
+        <div class="mc-meta">999,999,999+ · 25.6.16(목)</div>
+        <div class="mc-amt">메모 미입력</div>
+        <div class="mc-btn"><button class="ob" style="height:28px;font-size:11px">패밀리 설정</button></div>
+      </div>
+      <div class="mc">
+        <div class="mc-name">최경자 ›</div>
+        <div class="mc-meta">0원 · 25.6.16(목)</div>
+        <div style="font-size:12px;color:var(--g300);margin-top:4px">메모가 없어지면 활성화됩니다.</div>
+        <div class="mc-btn"><button class="ob" style="height:28px;font-size:11px">패밀리 설정</button></div>
+      </div>
+      <div class="mc">
+        <div class="mc-name">#김민지58R ›</div>
+        <div class="mc-meta">0원</div>
+        <div style="font-size:12px;color:var(--g300);margin-top:4px">메모 미입력</div>
+        <div class="mc-btn"><button class="ob" style="height:28px;font-size:11px">패밀리 설정</button></div>
+      </div>
+      <div class="mc">
+        <div class="mc-name" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">고객명 같아지면 말줄임처리 ›</div>
+        <div class="mc-meta">0원 프리이전한</div>
+        <div style="font-size:12px;color:var(--g300);margin-top:4px">메모 미입력</div>
+        <div class="mc-btn"><button class="ob" style="height:28px;font-size:11px">패밀리 설정</button></div>
+      </div>
+      <div class="mc">
+        <div class="mc-name">김주희2003_최원 ›</div>
+        <div class="mc-meta">0원</div>
+        <div class="mc-btn" style="margin-top:22px"><button class="ob" style="height:28px;font-size:11px">패밀리 설정</button></div>
+      </div>
+    </div>
+    <div style="font-size:16px;font-weight:700;color:var(--g700);margin-bottom:12px">충전/사용 내역</div>
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <colgroup><col style="width:10%"/><col style="width:12%"/><col style="width:48%"/><col style="width:15%"/><col style="width:15%"/></colgroup>
+        <thead><tr><th>날짜</th><th>충전/사용 고객</th><th>내역</th><th>증감</th><th>잔여 금액</th></tr></thead>
+        <tbody>
+          <tr><td>23.5.13(월)</td><td>고객명</td><td>정액권 충전</td><td class="plus">+30,000원</td><td>350,000원</td></tr>
+          <tr><td>23.5.13(월)</td><td>고객명</td><td>패스 프로그램+40분 패스 결제</td><td class="minus">-10,000원</td><td>340,000원</td></tr>
+          <tr><td>23.5.13(월)</td><td>고객명</td><td>정액권 충전</td><td class="zero">+0원</td><td>340,000원</td></tr>
+          <tr><td>23.5.13(월)</td><td>고객명</td><td>패스 프로그램+40분 패스 결제</td><td class="minus">-10,000원</td><td>330,000원</td></tr>
+          <tr><td>23.5.13(월)</td><td>고객명</td><td>정액권 충전</td><td class="plus">+30,000원</td><td>360,000원</td></tr>
+          <tr><td>고객명</td><td>23.5.13(월)</td><td>연장+클레이닌연, 연장+영양영양 결제</td><td class="minus">-10,000원</td><td>350,000원</td></tr>
+          <tr><td>23.5.13(월)</td><td>고객명</td><td>정액권 충전</td><td class="plus">+30,000원</td><td>380,000원</td></tr>
+          <tr><td>23.5.13(월)</td><td>고객명</td><td>발급공당 결제</td><td class="minus">-10,000원</td><td>370,000원</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="pag"><button class="pg on">1</button><button class="pg">2</button><button class="pg">3</button><button class="pg">4</button><button class="pg">5</button><button class="pg">›</button></div>
+  </div>
+
+</main>
+
+<script>
+  var curTab = 'sale';
+
+  function sv(mode) {
+    var body = document.body;
+    document.getElementById('vn').classList.toggle('on', mode === 'n');
+    document.getElementById('vc').classList.toggle('on', mode === 'c');
+    if (mode === 'c') {
+      body.classList.add('c');
+    } else {
+      body.classList.remove('c');
+    }
+    localStorage.setItem('vt', mode);
+  }
+
+  function st(tabId) {
+    curTab = tabId;
+    document.querySelectorAll('.tab').forEach(function(t) {
+      t.classList.toggle('on', t.dataset.t === tabId);
+    });
+    document.querySelectorAll('.tc').forEach(function(c) {
+      c.classList.toggle('on', c.id === 't-' + tabId);
+    });
+  }
+
+  document.querySelectorAll('.tab').forEach(function(t) {
+    t.addEventListener('click', function() { st(t.dataset.t); });
+  });
+
+  window.addEventListener('DOMContentLoaded', function() {
+    var saved = localStorage.getItem('vt');
+    if (saved === 'c') sv('c'); else sv('n');
+  });
+</script>
+</body>
+</html>
